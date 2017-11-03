@@ -6,10 +6,10 @@ understanding of Near Earth Objects, as well as past or potential impacts.
 
 **Sources**:
 
-[Asteroids - NeoWs API](https://api.nasa.gov/api.html#NeoWS)
-[Sentry: Earth Impact Monitoring](https://cneos.jpl.nasa.gov/sentry/details.html#?des=2017%20RZ17)
-[JPL Small-Body Database](https://ssd.jpl.nasa.gov/sbdb.cgi)
-[WISE NEA Discovery Statistics](https://data.nasa.gov/Space-Science/WISE-NEA-COMET-DISCOVERY-STATISTICS/6fim-4xk6)
+- [Asteroids - NeoWs API](https://api.nasa.gov/api.html#NeoWS)
+- [Sentry: Earth Impact Monitoring](https://cneos.jpl.nasa.gov/sentry/details.html#?des=2017%20RZ17)
+- [JPL Small-Body Database](https://ssd.jpl.nasa.gov/sbdb.cgi)
+- [WISE NEA Discovery Statistics](https://data.nasa.gov/Space-Science/WISE-NEA-COMET-DISCOVERY-STATISTICS/6fim-4xk6)
 
 ## Set Up and Installation:
 
