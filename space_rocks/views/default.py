@@ -1,8 +1,8 @@
 """."""
-from pyramid.views import view_config
+from pyramid.view import view_config
 
 
-@view_config(route_name='home', renderer='index.jinja2')
+@view_config(route_name='home', renderer='space_rocks:templates/layout.jinja2')
 def home_view(request):
     """Home view for website."""
     pass
