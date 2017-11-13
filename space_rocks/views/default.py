@@ -36,3 +36,8 @@ def absolute_magnitude_view(request):
 def orbit_view(request):
     """Renders the view for the orbits."""
     return {}
+
+@view_config(route_name='neo_detail', renderer='static/abs_magnitude.html')
+def neo_detail_view(request):
+    """Renders the view for the orbits."""
+    return {}
