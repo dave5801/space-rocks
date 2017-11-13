@@ -2,37 +2,37 @@
 from pyramid.view import view_config
 
 
-@view_config(route_name='home', renderer='space_rocks:templates/layout.jinja2')
+@view_config(route_name='home', renderer='../templates/index.jinja2')
 def home_view(request):
     """Home view for website."""
-    pass
+    return {}
 
 
-@view_config(route_name='about', renderer='about_us.jinja2')
+@view_config(route_name='about', renderer='../templates/about_us.jinja2')
 def about_view(request):
     """Renders about us page."""
-    pass
+    return {}
 
 
-@view_config(route_name='size', renderer='size_view.jinja2')
+@view_config(route_name='size', renderer='../templates/size_view.jinja2')
 def size_view(request):
     """Renders view page for the size view."""
-    pass
+    return {}
 
 
-@view_config(route_name='distance', renderer='distance_view.jinja2')
+@view_config(route_name='distance', renderer='../templates/distance_view.jinja2')
 def distance_view(request):
     """Renders the distance view."""
-    pass
+    return {}
 
 
-@view_config(route_name='absmag', renderer='absmag_view.jinja2')
+@view_config(route_name='absmag', renderer='../templates/absmag_view.jinja2')
 def absolute_magnitude_view(request):
     """Renders the view for absolute mignitude."""
-    pass
+    return {}
 
 
-@view_config(route_name='orbits', renderer='orbits_view.jinja2')
+@view_config(route_name='orbits', renderer='../templates/orbits_view.jinja2')
 def orbit_view(request):
     """Renders the view for the orbits."""
-    pass
+    return {}
