@@ -1,7 +1,7 @@
 """Routes for our SPACE ROCKS site"""
 
 
-def inlcudeme(config):
+def includeme(config):
     """The routes for our totally sweet SPACE ROCKS site."""
     config.add_static_view('static', 'space_rocks:static')
     config.add_route('home', '/')
