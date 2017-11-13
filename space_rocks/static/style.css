@@ -1,0 +1,17 @@
+.image_right {
+    float: right;
+    width: 40%;
+}
+
+.left {
+    width: 48%;
+    float: left;
+}
+
+.title {
+    font-size: 5em;
+}
+
+.title_two {
+    color: #3500d3;
+}
