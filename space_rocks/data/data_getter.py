@@ -5,16 +5,17 @@ It will then break down their painful nested dict/list/dict mess and pull
 out only the information we need and place it into a single dict with
 only one level.
 """
-'''
+
 import requests
 SPACE_DATA = []
 
 for x in range(201):
-    r = requests.get('https://api.nasa.gov/neo/rest/v1/neo/browse?page=' + str(x) + '&size=20&api_key=LOTf1b1LrXn7WMAMYM4UtgEbaiZwNjxFStMKr5L4')
+    r = requests.get('https://api.nasa.gov/neo/rest/v1/neo/browse?page=' + str(x) + '&size=20&api_key=GYv6ouAkoIpO6h4i1th4XWewFNX2zVSUZ9ZBfS4d')
     data = r.json()
     data = data['near_earth_objects']
     try:
         for i in range(len(data)):
+            data_link = data[i]['nasa_jpl_url']
             data_id = data[i]['neo_reference_id']
             data_name = data[i]['name']
             data_abs_mag = data[i]["absolute_magnitude_h"]
@@ -46,6 +47,7 @@ for x in range(201):
             one_asteroid = {
                 'neo_id': data_id,
                 'name': data_name,
+                'rock_url': data_link,
                 'absmag': data_abs_mag,
                 'diamiles': diameter_miles_average,
                 'diafeet': diameter_feet_average,
@@ -68,5 +70,4 @@ for x in range(201):
             SPACE_DATA.append(one_asteroid)
     except KeyError:
         continue
-    print("Page: " + str(x) + "Calling data getter")
-    '''
+    print("Page: " + str(x))
