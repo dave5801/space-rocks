@@ -57,5 +57,8 @@ setup(
         'paste.app_factory': [
             'main = space_rocks:main',
         ],
+        'console_scripts': [
+            'initdb = space_rocks.scripts.initializedb:main',
+        ]
     },
 )
