@@ -5,7 +5,7 @@ It will then break down their painful nested dict/list/dict mess and pull
 out only the information we need and place it into a single dict with
 only one level.
 """
-
+'''
 import requests
 SPACE_DATA = []
 
@@ -71,3 +71,4 @@ for x in range(201):
     except KeyError:
         continue
     print("Page: " + str(x))
+    '''
