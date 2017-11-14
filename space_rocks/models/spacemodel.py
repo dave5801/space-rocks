@@ -1,5 +1,5 @@
 from sqlalchemy import (
-    Bool,
+    # Bool,
     Column,
     Float,
     Integer,
