@@ -23,7 +23,6 @@ PyYAML==3.12
 repoze.lru==0.7
 requests==2.18.4
 six==1.11.0
--e git+https://github.com/dave5801/space-rocks.git@c31f6a2c43507c8395b0849ee03032b1ebbdde07#egg=space_rocks
 SQLAlchemy==1.1.15
 tornado==4.5.2
 transaction==2.1.2
