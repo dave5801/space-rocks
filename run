@@ -1,4 +1,5 @@
+#!/bin/bash
 set -e
-cd expense_tracker
 python setup.py develop
+initdb production.ini
 python runapp.py
