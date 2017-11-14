@@ -1,21 +1,25 @@
 """Class for Scatter Plot -to be integrated with API calls"""
 
 
+from bokeh.models import ColumnDataSource, OpenURL, TapTool
 from bokeh.plotting import figure, output_file, show
 
-# placeholder for API Data
-x = [1, 2, 3, 4, 5]
-y = [6, 7, 2, 4, 5]
+output_file("abs_magnitude.html")
 
-# output to static HTML file in template directory
-output_file("../templates/graphs/abs_magnitude.html")
-
-# create a new plot with a title and axis labels
-p = figure(title="Brightness and Velocity", x_axis_label='Absolute Magnitude', y_axis_label='Velocity')
+p = figure(title="Brightness and Velocity", tools="tap", x_axis_label='Absolute Magnitude', y_axis_label='Velocity')
 
 
-#render points
-p.circle(x, y, legend="Near Earth Objects.", line_width=2)
+source = ColumnDataSource(data=dict(
+    x=[1, 2, 3, 4, 5],
+    y=[2, 5, 8, 2, 7],
+    color=["navy", "orange", "olive", "firebrick", "gold"]
+    ))
 
-# show the results
+p.circle('x', 'y', color='color', size=20, source=source)
+
+url = "../templates/details_neo1.html"
+#url = "http://www.colors.commutercreative.com/@color/"
+taptool = p.select(type=TapTool)
+taptool.callback = OpenURL(url=url)
+
 show(p)
