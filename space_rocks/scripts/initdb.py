@@ -13,8 +13,8 @@ from ..models import (
     get_engine,
     get_session_factory,
 )
-from learning_journal.models.entrymodel import Entry
-from learning_journal.data.journal_entries import JOURNAL_ENTRIES
+# from learning_journal.models.entrymodel import Entry
+# from learning_journal.data.journal_entries import JOURNAL_ENTRIES
 
 
 def usage(argv):
