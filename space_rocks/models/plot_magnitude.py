@@ -2,7 +2,7 @@
 
 
 from bokeh.models import ColumnDataSource, OpenURL, TapTool
-from bokeh.plotting import figure, output_file, show
+from bokeh.plotting import figure, output_file
 
 output_file("abs_magnitude.html")
 
@@ -22,4 +22,3 @@ url = "../templates/details_neo1.html"
 taptool = p.select(type=TapTool)
 taptool.callback = OpenURL(url=url)
 
-show(p)
