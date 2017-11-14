@@ -3,6 +3,7 @@
 {% block content %}
 <ul>
     {% for neo in asteroids %}
+    <li>{{neo.id}}</li>
     <li>{{neo.neo_id}}</li>
     <li>{{neo.name}}</li>
     <li>{{neo.url}}</li>
@@ -10,6 +11,6 @@
     <li>{{neo.lunar}}</li>
     <li>{{neo.kilometers}}</li>
     <li>{{neo.miles}}</li>
-</ul>
     {% endfor %}
+</ul>
 {% endblock %}
