@@ -13,8 +13,10 @@ from ..models import (
     get_engine,
     get_session_factory,
 )
-# from learning_journal.models.entrymodel import Entry
-# from learning_journal.data.journal_entries import JOURNAL_ENTRIES
+# from spce_rocks.models.spacemodel import Size
+# from spce_rocks.models.spacemodel import Distance
+# from spce_rocks.models.spacemodel import AbsoluteMag
+# from spce_rocks.models.spacemodel import Orbit
 
 
 def usage(argv):

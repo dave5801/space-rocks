@@ -1,29 +1,53 @@
-import unittest
-
-from pyramid import testing
-
-
-class ViewTests(unittest.TestCase):
-    def setUp(self):
-        self.config = testing.setUp()
-
-    def tearDown(self):
-        testing.tearDown()
-
-    def test_my_view(self):
-        from .views import my_view
-        request = testing.DummyRequest()
-        info = my_view(request)
-        self.assertEqual(info['project'], 'Space Rocks')
+"""Testing our Views."""
+from pyramid.testing import DummyRequest
+import pytest
 
 
-class FunctionalTests(unittest.TestCase):
-    def setUp(self):
-        from space_rocks import main
-        app = main({})
-        from webtest import TestApp
-        self.testapp = TestApp(app)
+@pytest.fixture
+def dummy_request():
+    """Set up a dummy request for testing."""
+    return DummyRequest()
 
-    def test_root(self):
-        res = self.testapp.get('/', status=200)
-        self.assertTrue(b'Pyramid' in res.body)
+
+def test_home_view_returns_dict():
+    """Test if home view returns a dictionary."""
+    from space_rocks.views.default import home_view
+    req = DummyRequest()
+    response = home_view(req)
+    assert isinstance(response, dict)
+
+
+def test_about_view_returns_dict():
+    """Test if about view returns a dictionary."""
+    from space_rocks.views.default import about_view
+    req = DummyRequest()
+    response = about_view(req)
+    assert isinstance(response, dict)
+
+
+def test_distance_view_returns_dict():
+    """Test if distance_view returns a dictionary."""
+    from space_rocks.views.default import distance_view
+    req = DummyRequest()
+    req.matchdict['id'] = 1
+    response = distance_view(req)
+    assert isinstance(response, dict)
+
+
+def test_size_view_returns_dict():
+    """Test if size_view returns a dictionary."""
+    from space_rocks.views.default import size_view
+    req = DummyRequest()
+    req.matchdict['id'] = 1
+    response = size_view(req)
+    assert isinstance(response, dict)
+
+
+def test_absolute_magnitude_viewreturns_dict():
+    """Test if absolute_magnitude_view returns a dictionary."""
+    from space_rocks.views.default import absolute_magnitude_view
+    req = DummyRequest()
+    req.matchdict['id'] = 1
+    response = absolute_magnitude_view(req)
+    assert isinstance(response, dict)
+
