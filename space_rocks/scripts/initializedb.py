@@ -17,8 +17,10 @@ from ..models import (
     get_tm_session,
 )
 from space_rocks.models.spacemodel import Size, AbsoluteMag, Distance, Orbit
-PATH = '/Users/hcodydibble/Documents/SCHOOL/codefellows/401/space-rocks/space_rocks/data/space_data.pkl'
-with open(PATH, 'rb') as file:
+HERE = os.path.abspath(__file__)
+STATIC = os.path.join(os.path.dirname(os.path.dirname(HERE)))
+DATA = os.path.join(STATIC, 'data/space_data.pkl')
+with open(DATA, 'rb') as file:
     SUPER_DICT = pickle.load(file)
 
 
@@ -88,8 +90,7 @@ def main(argv=sys.argv):
                 perihelion_time=item["perihelion_time"],
             )
             orbit_models.append(new_orbit)
-        dbsession.add_all(
-            size_models,
-            distance_models,
-            absolute_magnitude_models,
-            orbit_models)
+            dbsession.add_all(size_models)
+            dbsession.add_all(distance_models)
+            dbsession.add_all(absolute_magnitude_models)
+            dbsession.add_all(orbit_models)

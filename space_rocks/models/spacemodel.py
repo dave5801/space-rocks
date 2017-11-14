@@ -41,6 +41,7 @@ class AbsoluteMag(Base):
     __tablename__ = 'absmagdata'
     id = Column(Integer, primary_key=True)
     neo_id = Column(Unicode)
+    name = Column(Unicode)
     absolutemag = Column(Float)
     velocity_kps = Column(Float)
     velocity_kph = Column(Float)
@@ -53,6 +54,7 @@ class Orbit(Base):
     __tablename__ = 'orbitdata'
     id = Column(Integer, primary_key=True)
     neo_id = Column(Unicode)
+    name = Column(Unicode)
     orbit_body = Column(Unicode)
     orbit_period = Column(Float)
     perihelion_dist = Column(Float)
