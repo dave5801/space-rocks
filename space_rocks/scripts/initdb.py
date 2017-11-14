@@ -47,7 +47,7 @@ def main(argv=sys.argv):
         orbit_models = []
         for item in SUPER_DICT:
             new_size = Size(
-                id=item["id"],
+                id=int(item["id"]),
                 name=item["name"],
                 kilometers=item["diakm"],
                 meters=item["diam"],
@@ -56,7 +56,7 @@ def main(argv=sys.argv):
             )
             size_models.append(new_size)
             new_distance = Distance(
-                id=item["id"],
+                id=int(item["id"]),
                 name=item["name"],
                 astronomical=item["miss_astronomical"],
                 lunar=item["miss_lunar"],
@@ -65,7 +65,7 @@ def main(argv=sys.argv):
             )
             distance_models.append(new_distance)
             new_absmag = AbsoluteMag(
-                id=item["id"],
+                id=int(item["id"]),
                 name=item["name"],
                 absolutemag=item["absmag"],
                 velocity_kps=item["velocity_kps"],
@@ -74,7 +74,7 @@ def main(argv=sys.argv):
             )
             absolute_magnitude_models.append(new_absmag)
             new_orbit = Orbit(
-                id=item["id"],
+                id=int(item["id"]),
                 name=item["name"],
                 orbit_period=item["orbit_period"],
                 perihelion_dist=item["perihelion_dist"],
