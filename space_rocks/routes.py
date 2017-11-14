@@ -10,8 +10,6 @@ def includeme(config):
     config.add_route('distance', '/distance')
     config.add_route('absmag', '/absolutemagnitude')
     config.add_route('orbits', '/orbits')
-<<<<<<< HEAD
     config.add_route('neo_detail', '/neo_detail')
-=======
     config.add_route('detail', '/{id:\d+}')
->>>>>>> 96cd3a96a47fec9bce5d1d88d433f626ffd35d6a
+
