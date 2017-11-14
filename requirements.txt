@@ -11,6 +11,7 @@ PasteDeploy==1.5.2
 plaster==1.0
 plaster-pastedeploy==0.4.1
 psycopg2==2.7.3.2
+py==1.4.34
 Pygments==2.2.0
 pyramid==1.9.1
 pyramid-debugtoolbar==4.3
@@ -18,6 +19,7 @@ pyramid-jinja2==2.7
 pyramid-mako==1.0.2
 pyramid-retry==0.5
 pyramid-tm==2.2
+pytest==3.2.4
 python-dateutil==2.6.1
 PyYAML==3.12
 repoze.lru==0.7

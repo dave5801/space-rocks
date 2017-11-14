@@ -28,9 +28,9 @@ def size_view(request):
 @view_config(route_name='distance', renderer='../templates/distance_view.jinja2')
 def distance_view(request):
     """Renders the distance view."""
-    asteroids = request.dbsession.query(Distance).all()
+    # asteroids = request.dbsession.query(Distance).all()
     return {
-        "asteroids": asteroids
+        # "asteroids": asteroids
         }
 
 
