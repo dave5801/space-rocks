@@ -13,8 +13,8 @@ from ..models import (
     get_engine,
     get_session_factory,
 )
-from learning_journal.models.entrymodel import Entry
-from learning_journal.data.journal_entries import JOURNAL_ENTRIES
+from space_rocks.models.spacemodel import Size, AbsoluteMag, Distance, Orbit
+from space_rocks.data.space_data import SUPER_DICT
 
 
 def usage(argv):
