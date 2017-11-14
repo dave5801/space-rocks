@@ -37,16 +37,16 @@ def orbit_view(request):
     """Renders the view for the orbits."""
     return {}
 
-<<<<<<< HEAD
+
 @view_config(route_name='neo_detail', renderer='static/abs_magnitude.html')
 def neo_detail_view(request):
     """Renders the view for the orbits."""
     return {}
-=======
+
 
 @view_config(route_name='detail', renderer='../templates/detail_view.jinja2')
 def detail_view(request):
     """Renders the detail view for Near Earth Object."""
     neo_id = int(request.matchdict['id'])
     return {}
->>>>>>> 96cd3a96a47fec9bce5d1d88d433f626ffd35d6a
+
