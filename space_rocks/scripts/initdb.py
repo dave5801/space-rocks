@@ -1,5 +1,6 @@
 import os
 import sys
+import pickle
 
 from pyramid.paster import (
     get_appsettings,
@@ -14,7 +15,7 @@ from ..models import (
     get_session_factory,
 )
 from space_rocks.models.spacemodel import Size, AbsoluteMag, Distance, Orbit
-from space_rocks.data.space_data import SUPER_DICT
+#from space_rocks.data.space_data import SUPER_DICT
 
 
 def usage(argv):
