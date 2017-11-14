@@ -23,7 +23,10 @@ def size_view(request):
 @view_config(route_name='distance', renderer='../templates/distance_view.jinja2')
 def distance_view(request):
     """Renders the distance view."""
-    return {}
+    asteroids = request.dbsession.query(Distance).all()
+    return {
+        "asteroids": asteroids
+        }
 
 
 @view_config(route_name='absmag', renderer='../templates/absmag_view.jinja2')
@@ -37,16 +40,9 @@ def orbit_view(request):
     """Renders the view for the orbits."""
     return {}
 
-<<<<<<< HEAD
-@view_config(route_name='neo_detail', renderer='static/abs_magnitude.html')
-def neo_detail_view(request):
-    """Renders the view for the orbits."""
-    return {}
-=======
 
 @view_config(route_name='detail', renderer='../templates/detail_view.jinja2')
 def detail_view(request):
     """Renders the detail view for Near Earth Object."""
     neo_id = int(request.matchdict['id'])
     return {}
->>>>>>> 96cd3a96a47fec9bce5d1d88d433f626ffd35d6a
