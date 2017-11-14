@@ -43,7 +43,7 @@ for x in range(201):
             data_perihelion_time = data[i]['orbital_data']['perihelion_time']
 
             one_asteroid = {
-                'id': data_id,
+                'neo_id': data_id,
                 'name': data_name,
                 'absmag': data_abs_mag,
                 'diamiles': diameter_miles_average,
