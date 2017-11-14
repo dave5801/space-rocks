@@ -15,39 +15,42 @@ def home_view(request):
 
 @view_config(route_name='about', renderer='../templates/about_us.jinja2')
 def about_view(request):
-    """Renders about us page."""
+    """Render the about us page."""
     return {}
 
 
 @view_config(route_name='size', renderer='../templates/size_view.jinja2')
 def size_view(request):
-    """Renders view page for the size view."""
-    return {}
+    """Render the view page for the size view."""
+    asteroids = request.dbsession.query(Size).all()
+    return {
+        "asteroids": asteroids
+    }
 
 
 @view_config(route_name='distance', renderer='../templates/distance_view.jinja2')
 def distance_view(request):
-    """Renders the distance view."""
+    """Render the distance view."""
     asteroids = request.dbsession.query(Distance).all()
     return {
         "asteroids": asteroids
-        }
+    }
 
 
 @view_config(route_name='absmag', renderer='../templates/absmag_view.jinja2')
 def absolute_magnitude_view(request):
-    """Renders the view for absolute mignitude."""
+    """Render the view for absolute mignitude."""
     return {}
 
 
 @view_config(route_name='orbits', renderer='../templates/orbits_view.jinja2')
 def orbit_view(request):
-    """Renders the view for the orbits."""
+    """Render the view for the orbits."""
     return {}
 
 
 @view_config(route_name='detail', renderer='../templates/detail_view.jinja2')
 def detail_view(request):
-    """Renders the detail view for Near Earth Object."""
+    """Render the detail view for Near Earth Object."""
     neo_id = int(request.matchdict['id'])
     return {}
