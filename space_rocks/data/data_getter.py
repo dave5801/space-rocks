@@ -9,7 +9,7 @@ only one level.
 # import requests
 # SPACE_DATA = []
 
-# for x in range(201):
+# for x in range(1):
 #     r = requests.get('https://api.nasa.gov/neo/rest/v1/neo/browse?page=' + str(x) + '&size=20&api_key=GYv6ouAkoIpO6h4i1th4XWewFNX2zVSUZ9ZBfS4d')
 #     data = r.json()
 #     data = data['near_earth_objects']
