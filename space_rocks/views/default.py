@@ -8,7 +8,6 @@ from space_rocks.models.spacemodel import (
     Orbit)
 
 
-
 @view_config(route_name='home', renderer='../templates/index.jinja2')
 def home_view(request):
     """Home view for website."""

@@ -65,6 +65,7 @@ only one level.
 #                 'perihelion_dist': data_perihelion_dist,
 #                 'aphelion_dist': data_aphelion_dist,
 #                 'orbit_eccentricity': data_orbit_eccentricity,
+#                 'orbit_body': data_orbiting_body,
 #                 'perihelion_time': data_perihelion_time
 #             }
 #             SPACE_DATA.append(one_asteroid)

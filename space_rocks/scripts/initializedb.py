@@ -53,48 +53,49 @@ def main(argv=sys.argv):
         absolute_magnitude_models = []
         orbit_models = []
         for item in SUPER_DICT:
-            new_size = Size(
-                neo_id=item["neo_id"],
-                name=item["name"],
-                url=item["rock_url"],
-                kilometers=item["diakm"],
-                meters=item["diam"],
-                miles=item["diamiles"],
-                feet=item["diafeet"],
-            )
-            size_models.append(new_size)
-            new_distance = Distance(
-                neo_id=item["neo_id"],
-                name=item["name"],
-                url=item["rock_url"],
-                astronomical=item["miss_astronomical"],
-                lunar=item["miss_lunar"],
-                kilometers=item["miss_km"],
-                miles=item["miss_miles"],
-            )
-            distance_models.append(new_distance)
-            new_absmag = AbsoluteMag(
-                neo_id=item["neo_id"],
-                name=item["name"],
-                url=item["rock_url"],
-                absolutemag=item["absmag"],
-                velocity_kps=item["velocity_kps"],
-                velocity_kph=item["velocity_kph"],
-                velocity_mph=item["velocity_mph"],
-            )
-            absolute_magnitude_models.append(new_absmag)
-            new_orbit = Orbit(
-                neo_id=item["neo_id"],
-                name=item["name"],
-                url=item["rock_url"],
-                orbit_period=item["orbit_period"],
-                perihelion_dist=item["perihelion_dist"],
-                aphelion_dist=item["aphelion_dist"],
-                eccentricity=item["orbit_eccentricity"],
-                perihelion_time=item["perihelion_time"],
-            )
-            orbit_models.append(new_orbit)
-            dbsession.add_all(size_models)
-            dbsession.add_all(distance_models)
-            dbsession.add_all(absolute_magnitude_models)
-            dbsession.add_all(orbit_models)
+            if item['orbit_body'] == 'Earth':
+                new_size = Size(
+                    neo_id=item["neo_id"],
+                    name=item["name"],
+                    url=item["rock_url"],
+                    kilometers=item["diakm"],
+                    meters=item["diam"],
+                    miles=item["diamiles"],
+                    feet=item["diafeet"],
+                )
+                size_models.append(new_size)
+                new_distance = Distance(
+                    neo_id=item["neo_id"],
+                    name=item["name"],
+                    url=item["rock_url"],
+                    astronomical=item["miss_astronomical"],
+                    lunar=item["miss_lunar"],
+                    kilometers=item["miss_km"],
+                    miles=item["miss_miles"],
+                )
+                distance_models.append(new_distance)
+                new_absmag = AbsoluteMag(
+                    neo_id=item["neo_id"],
+                    name=item["name"],
+                    url=item["rock_url"],
+                    absolutemag=item["absmag"],
+                    velocity_kps=item["velocity_kps"],
+                    velocity_kph=item["velocity_kph"],
+                    velocity_mph=item["velocity_mph"],
+                )
+                absolute_magnitude_models.append(new_absmag)
+                new_orbit = Orbit(
+                    neo_id=item["neo_id"],
+                    name=item["name"],
+                    url=item["rock_url"],
+                    orbit_period=item["orbit_period"],
+                    perihelion_dist=item["perihelion_dist"],
+                    aphelion_dist=item["aphelion_dist"],
+                    eccentricity=item["orbit_eccentricity"],
+                    perihelion_time=item["perihelion_time"]
+                )
+                orbit_models.append(new_orbit)
+                dbsession.add_all(size_models)
+                dbsession.add_all(distance_models)
+                dbsession.add_all(absolute_magnitude_models)
+                dbsession.add_all(orbit_models)
