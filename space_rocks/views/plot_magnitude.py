@@ -2,11 +2,25 @@
 
 from bokeh.models import ColumnDataSource, OpenURL, TapTool
 from bokeh.plotting import figure, output_file, show
+import os
 
 
-def graph_abs_magnitude(abs_mag, velocity):
+def graph_abs_magnitude(abs_mag=None, velocity=None):
     """Create Bokeh Scatter Plot."""
-    output_file("abs_magnitude.html")
+
+
+    if abs_mag == None and velocity == None:
+        abs_mag = []
+        velocity = []
+
+    here = os.path.abspath(__file__)
+    graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)), "static/abs_magnitude.html")
+    #import pdb;
+    #pdb.set_trace()
+
+    #output_file("static/abs_magnitude.html")
+    output_file(graph_file_path)
+
 
     p = figure(
         title="Brightness and Velocity", tools="tap",
@@ -20,12 +34,12 @@ def graph_abs_magnitude(abs_mag, velocity):
 
     p.circle('x', 'y', color='color', size=20, source=source)
 
-    url = "../templates/details_neo1.html"
+    url = "static/details_neo1.html"
     #url = "http://www.colors.commutercreative.com/@color/" <---- save this for now, it is an example for later
     taptool = p.select(type=TapTool)
     taptool.callback = OpenURL(url=url)
 
-    #show(p)
+    show(p)
 
 
 if __name__ == '__main__':

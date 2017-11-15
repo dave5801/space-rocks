@@ -1,6 +1,7 @@
 """Testing our Views."""
 from pyramid.testing import DummyRequest
 import pytest
+import os.path
 
 @pytest.fixture
 def dummy_request():
@@ -49,3 +50,8 @@ def test_absolute_magnitude_viewreturns_dict():
     req.matchdict['id'] = 1
     response = absolute_magnitude_view(req)
     assert isinstance(response, dict)
+
+def test_abs_magnitude_graph_exists_no_arguments():
+    from space_rocks.views.plot_magnitude import graph_abs_magnitude
+    graph_abs_magnitude()
+    assert os.path.isfile("static/abs_magnitude.html") 
