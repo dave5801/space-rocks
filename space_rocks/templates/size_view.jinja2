@@ -1,7 +1,7 @@
 {% extends "layout.jinja2" %}
 
 {% block content %}
-<p>Count: {{asteroids|length}}</p>
+<p>Number of Asteroids {{asteroids|length}}</p>
 {% for roid in asteroids %}
 <h2><a href="{{ roid.url }}" target="_blank">{{roid.name}}</a></h2>
 <h3>{{roid.neo_id}}</h3>
