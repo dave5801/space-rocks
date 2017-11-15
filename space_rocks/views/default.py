@@ -2,9 +2,11 @@
 from pyramid.view import view_config
 from space_rocks.models.spacemodel import (
     Distance,
+    Orbit)
     Size,
     AbsoluteMag,
     Orbit)
+
 
 
 @view_config(route_name='home', renderer='../templates/index.jinja2')
@@ -30,8 +32,13 @@ def size_view(request):
 
 @view_config(route_name='distance', renderer='../templates/distance_view.jinja2')
 def distance_view(request):
-    """Render the distance view."""
+    """Renders the distance view."""
+    from space_rocks.views.distance_graph import gather_data
     asteroids = request.dbsession.query(Distance).all()
+    asteroid_list = []
+    for neo in asteroids:
+        asteroid_list.append(neo)
+    graph = gather_data(asteroid_list)
     return {
         "asteroids": asteroids
     }
@@ -45,8 +52,11 @@ def absolute_magnitude_view(request):
 
 @view_config(route_name='orbits', renderer='../templates/orbits_view.jinja2')
 def orbit_view(request):
-    """Render the view for the orbits."""
-    return {}
+    """Renders the view for the orbits."""
+    Orbits = request.dbsession.query(Orbit).all()
+    return {
+        "Orbits": Orbits
+    }
 
 
 @view_config(route_name='detail', renderer='../templates/detail_view.jinja2')

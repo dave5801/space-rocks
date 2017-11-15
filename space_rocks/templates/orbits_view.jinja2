@@ -1,5 +1,14 @@
 {% extends "layout.jinja2" %}
 
 {% block content %}
-
+    {% for neo in Orbits %}
+    <h1>Name of NEO : <a href ="{{neo.url}}" target="_blank">{{neo.name}}</a></h1>
+    <h3>Id of NEO : {{neo.neo_id}}</h3>
+    <h4>Orbit Peroid : {{neo.orbit_period}}</h4>
+    <h5>Perinelion distance : {{neo.perihelion_dist}}</h5>
+    <h5>Aphelion distance : {{neo.aphelion_dist}}</h5>
+    <h5>Eccentricity : {{neo. eccentricity}}</h5>
+    <h5>{{neo.orbit_body}}</h5></li>
+<br>
+    {% endfor %}
 {% endblock %}
