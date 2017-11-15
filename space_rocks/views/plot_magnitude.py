@@ -18,6 +18,7 @@ def graph_abs_magnitude(abs_mag=None, velocity=None):
 
     here = os.path.abspath(__file__)
     graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)), "static/abs_magnitude.html")
+
     output_file(graph_file_path)
 
     p = figure(
