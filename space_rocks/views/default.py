@@ -2,7 +2,7 @@
 from pyramid.view import view_config
 from space_rocks.models.spacemodel import (
     Distance,
-    Orbit)
+    Orbit,
     Size,
     AbsoluteMag,
     Orbit)
@@ -53,7 +53,7 @@ def absolute_magnitude_view(request):
 @view_config(route_name='orbits', renderer='../templates/orbits_view.jinja2')
 def orbit_view(request):
     """Renders the view for the orbits."""
-    Orbits = request.dbsession.query(Orbit).all()
+    Orbits = request.dbsession.query(Orbit).filter(Orbit.orbit_body != 'Earth').all()
     return {
         "Orbits": Orbits
     }
