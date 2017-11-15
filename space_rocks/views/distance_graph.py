@@ -1,30 +1,34 @@
-from bokeh.plotting import figure, output_file, show, save, ColumnDataSource
-from bokeh.models import HoverTool
+from bokeh.plotting import figure, output_file, show, save
+from bokeh.models import ColumnDataSource, BoxZoomTool, HoverTool
 from space_rocks.models.spacemodel import Distance
 import random
 
 
 def gather_data(asteroids):
-    kilo_list = []
-    neo_name = []
-    neo_id = []
+    lunar_list = []
     for neo in asteroids:
-        kilo_list.append(neo.kilometers)
-        neo_name.append(neo.name)
-        neo_id.append(neo.neo_id)
-    create_chart_data(kilo_list, neo_name, neo_id)
+        lunar_list.append(neo.lunar)
+    create_chart_data(lunar_list)
 
 
-def create_chart_data(asteroid_list, name_list, id_list):
+def create_chart_data(asteroid_list):
     x_numbers = []
-    for i in range(len(asteroid_list)):
-        x_numbers.append(random.uniform(0.1, 19.9))
+    y_numbers = []
     N = len(asteroid_list)
+    num = N//2
+    for neo in asteroid_list[:num]:
+        a = random.uniform(0.1, neo)
+        # b = neo - a
+        x_numbers.append(neo - a)
+        y_numbers.append(a)
+    for neo in asteroid_list[num:]:
+        a = random.uniform(0.1, neo)
+        b = neo - a
+        x_numbers.append(-b)
+        y_numbers.append(a)
     x = x_numbers
-    y = asteroid_list
-    name = name_list
-    neo_id = id_list
-    chart_data = [N, x, y, name, neo_id]
+    y = y_numbers
+    chart_data = [N, x, y]
     create_chart(chart_data)
 
 
@@ -32,42 +36,57 @@ def create_chart(chart_data):
     N = chart_data[0]
     x = chart_data[1]
     y = chart_data[2]
-    name = chart_data[3],
-    neo_id = chart_data[4]
 
     output_file('space_rocks/static/distance.html')
-    TOOLS = "hover"
+    TOOLS = "hover,box_select,box_zoom,pan"
 
     p = figure(
         tools=TOOLS,
-        x_range=(0, 20),
-        y_range=(-10, 200),
-        plot_width=1000,
-        plot_height=2500,
+        x_range=(-14.5, 14.5),
+        y_range=(-0.5, 14.4),
+        plot_width=1200,
+        plot_height=800,
         background_fill_color="black",
         border_fill_color="black",
         outline_line_color="black",
         )
-    # source = ColumnDataSource(data=dict(
-    #         'x'=chart_data[1],
-    #         'y'=chart_data[2],
-    #         'N'=chart_data[0],
-    #         'name'=chart_data[3],
-    #         'neo_id'=chart_data[4]))
+
+    p.xaxis.axis_label = "Lunar Distance"
+    p.xgrid.grid_line_color = "#240090"
+    p.yaxis.axis_label = "Lunar Distance"
+    p.ygrid.grid_line_color = "#240090"
+
+    zoom_overlay = p.select_one(BoxZoomTool).overlay
+
+    zoom_overlay.line_color = "#3500d3"
+    zoom_overlay.line_width = 8
+    zoom_overlay.line_dash = "solid"
+    zoom_overlay.fill_color = None
+
+    source = ColumnDataSource(data=dict(
+        x=chart_data[1],
+        y=chart_data[2],
+    ))
+    hover = p.select_one(HoverTool)
+    hover.tooltips = [
+        ("index", "butthole"),
+        ("(x,y)", "($x, $y)"),
+        ("x", "@x"),
+        ("fill color", "$color[hex, swatch]:fill_color")
+    ]
 
     p.circle(
-        x=10,
-        y=150,
-        radius=1,
-        fill_color='#FF0000',
+        x=0,
+        y=0,
+        radius=0.01,
+        fill_color='red',
         fill_alpha=0.6,
         line_color=None)
-
     p.circle(
         x,
         y,
-        radius=0.1,
+        radius=0.05,
         fill_color='#FFFFFF',
         fill_alpha=0.6,
         line_color=None)
-    show(p)
+    save(p)

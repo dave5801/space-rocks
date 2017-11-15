@@ -33,15 +33,10 @@ def distance_view(request):
     """Renders the distance view."""
     from space_rocks.views.distance_graph import gather_data
     asteroids = request.dbsession.query(Distance).all()
-    # asteroid_list = []
-    # for neo in asteroids:
-    #     asteroid_list.append(neo)
-    # graph = gather_data(asteroid_list)
-    max_neo = 298875360.0
+    asteroid_list = []
     for neo in asteroids:
-        if neo.kilometers < max_neo:
-            max_neo = neo.kilometers
-    print(max_neo)
+        asteroid_list.append(neo)
+    graph = gather_data(asteroid_list)
     return {
         "asteroids": asteroids
     }
