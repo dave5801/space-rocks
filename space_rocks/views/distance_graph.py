@@ -37,6 +37,11 @@ def create_chart(chart_data):
     x = chart_data[1]
     y = chart_data[2]
 
+    data = {
+        'x_values': chart_data[1],
+        'y_values': chart_data[2]
+        }
+
     output_file('space_rocks/static/distance.html')
     TOOLS = "hover,box_select,box_zoom,pan"
 
@@ -63,15 +68,13 @@ def create_chart(chart_data):
     zoom_overlay.line_dash = "solid"
     zoom_overlay.fill_color = None
 
-    source = ColumnDataSource(data=dict(
-        x=chart_data[1],
-        y=chart_data[2],
-    ))
+    source = ColumnDataSource(data=data)
+
     hover = p.select_one(HoverTool)
     hover.tooltips = [
         ("index", "butthole"),
-        ("(x,y)", "($x, $y)"),
-        ("x", "@x"),
+        ("(x,y)", "(@x, @y)"),
+        ("x", "@x_values"),
         ("fill color", "$color[hex, swatch]:fill_color")
     ]
 
@@ -83,10 +86,11 @@ def create_chart(chart_data):
         fill_alpha=0.6,
         line_color=None)
     p.circle(
-        x,
-        y,
+        x='x_values',
+        y='y_values',
         radius=0.05,
         fill_color='#FFFFFF',
         fill_alpha=0.6,
-        line_color=None)
+        line_color=None,
+        source=source)
     save(p)
