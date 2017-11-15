@@ -2,10 +2,10 @@
 from pyramid.view import view_config
 from space_rocks.models.spacemodel import (
     Distance,
-    Orbit)
+    Orbit,
     Size,
     AbsoluteMag,
-    Orbit)
+)
 
 
 
