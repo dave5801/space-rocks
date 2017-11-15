@@ -53,51 +53,53 @@ def main(argv=sys.argv):
         absolute_magnitude_models = []
         orbit_models = []
         for item in SUPER_DICT:
-            if item['orbit_body'] == 'Earth' and '2016' in item['approach_date'] or '2017' in item['approach_date'] or '2018' in item['approach_date']:
-                new_size = Size(
-                    date=item['approach_date'],
-                    neo_id=item["neo_id"],
-                    name=item["name"],
-                    url=item["rock_url"],
-                    kilometers=item["diakm"],
-                    meters=item["diam"],
-                    miles=item["diamiles"],
-                    feet=item["diafeet"],
-                )
-                size_models.append(new_size)
-                new_distance = Distance(
-                    date=item['approach_date'],
-                    neo_id=item["neo_id"],
-                    name=item["name"],
-                    url=item["rock_url"],
-                    astronomical=item["miss_astronomical"],
-                    lunar=item["miss_lunar"],
-                    kilometers=item["miss_km"],
-                    miles=item["miss_miles"],
-                )
-                distance_models.append(new_distance)
-                new_absmag = AbsoluteMag(
-                    date=item['approach_date'],
-                    neo_id=item["neo_id"],
-                    name=item["name"],
-                    url=item["rock_url"],
-                    absolutemag=item["absmag"],
-                    velocity_kps=item["velocity_kps"],
-                    velocity_kph=item["velocity_kph"],
-                )
-                absolute_magnitude_models.append(new_absmag)
-                new_orbit = Orbit(
-                    date=item['approach_date'],
-                    neo_id=item["neo_id"],
-                    name=item["name"],
-                    url=item["rock_url"],
-                    orbit_period=item["orbit_period"],
-                    perihelion_dist=item["perihelion_dist"],
-                    aphelion_dist=item["aphelion_dist"],
-                    eccentricity=item["orbit_eccentricity"],
-                    perihelion_time=item["perihelion_time"]
-                )
-                orbit_models.append(new_orbit)
+            if item['orbit_body'] == 'Earth':
+                if '2016' in item['approach_date'] or '2017' in item['approach_date'] or '2018' in item['approach_date']:
+                    if float("{0:.2f}".format(float(item['miss_lunar']))) <= 14.00:
+                        new_size = Size(
+                            date=item['approach_date'],
+                            neo_id=item["neo_id"],
+                            name=item["name"],
+                            url=item["rock_url"],
+                            kilometers=item["diakm"],
+                            meters=item["diam"],
+                            miles=item["diamiles"],
+                            feet=item["diafeet"],
+                        )
+                        size_models.append(new_size)
+                        new_distance = Distance(
+                            date=item['approach_date'],
+                            neo_id=item["neo_id"],
+                            name=item["name"],
+                            url=item["rock_url"],
+                            astronomical=item["miss_astronomical"],
+                            lunar=item["miss_lunar"],
+                            kilometers=item["miss_km"],
+                            miles=item["miss_miles"],
+                        )
+                        distance_models.append(new_distance)
+                        new_absmag = AbsoluteMag(
+                            date=item['approach_date'],
+                            neo_id=item["neo_id"],
+                            name=item["name"],
+                            url=item["rock_url"],
+                            absolutemag=item["absmag"],
+                            velocity_kps=item["velocity_kps"],
+                            velocity_kph=item["velocity_kph"],
+                        )
+                        absolute_magnitude_models.append(new_absmag)
+                        new_orbit = Orbit(
+                            date=item['approach_date'],
+                            neo_id=item["neo_id"],
+                            name=item["name"],
+                            url=item["rock_url"],
+                            orbit_period=item["orbit_period"],
+                            perihelion_dist=item["perihelion_dist"],
+                            aphelion_dist=item["aphelion_dist"],
+                            eccentricity=item["orbit_eccentricity"],
+                            perihelion_time=item["perihelion_time"]
+                        )
+                        orbit_models.append(new_orbit)
         dbsession.add_all(size_models)
         dbsession.add_all(distance_models)
         dbsession.add_all(absolute_magnitude_models)

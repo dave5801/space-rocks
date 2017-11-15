@@ -69,7 +69,6 @@ only one level.
 #                 'perihelion_time': data_perihelion_time,
 #                 'orbit_body': data_orbiting_body,
 #                 'approach_date': data_approach_date
-
 #             }
 #             SPACE_DATA.append(one_asteroid)
 #     except KeyError:
