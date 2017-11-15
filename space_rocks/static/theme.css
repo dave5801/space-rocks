@@ -152,3 +152,6 @@ p {
     margin-top: 20px;
   }
 }
+ul {
+    list-style-image: url('sqpurple.gif');
+}
