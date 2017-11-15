@@ -95,7 +95,7 @@ def main(argv=sys.argv):
                     perihelion_time=item["perihelion_time"]
                 )
                 orbit_models.append(new_orbit)
-                dbsession.add_all(size_models)
-                dbsession.add_all(distance_models)
-                dbsession.add_all(absolute_magnitude_models)
-                dbsession.add_all(orbit_models)
+        dbsession.add_all(size_models)
+        dbsession.add_all(distance_models)
+        dbsession.add_all(absolute_magnitude_models)
+        dbsession.add_all(orbit_models)
