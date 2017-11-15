@@ -1,5 +1,16 @@
 {% extends "layout.jinja2" %}
 
 {% block content %}
-Display Distance View
+<ul>
+    {% for neo in asteroids %}
+    <li>{{neo.id}}</li>
+    <li>{{neo.neo_id}}</li>
+    <li>{{neo.name}}</li>
+    <li>{{neo.url}}</li>
+    <li>{{neo.astronomical}}</li>
+    <li>{{neo.lunar}}</li>
+    <li>{{neo.kilometers}}</li>
+    <li>{{neo.miles}}</li>
+    {% endfor %}
+</ul>
 {% endblock %}

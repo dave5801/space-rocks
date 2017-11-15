@@ -1,5 +1,11 @@
 """."""
 from pyramid.view import view_config
+from space_rocks.models.spacemodel import (
+    Distance,
+    Size,
+    AbsoluteMag,
+    Orbit)
+
 
 @view_config(route_name='home', renderer='../templates/index.jinja2')
 def home_view(request):
@@ -22,10 +28,12 @@ def size_view(request):
 @view_config(route_name='distance', renderer='../templates/distance_view.jinja2')
 def distance_view(request):
     """Renders the distance view."""
-    '''
-    '''
-    return {}
-    
+    # asteroids = request.dbsession.query(Distance).all()
+    return {
+        # "asteroids": asteroids
+        }
+
+
 @view_config(route_name='absmag', renderer='../templates/absmag_view.jinja2')
 def absolute_magnitude_view(request):
     """Renders the view for absolute mignitude."""
