@@ -5,7 +5,7 @@ from space_rocks.models.spacemodel import (
     Orbit,
     Size,
     AbsoluteMag,
-    Orbit)
+)
 
 
 @view_config(route_name='home', renderer='../templates/index.jinja2')
