@@ -52,7 +52,7 @@ def absolute_magnitude_view(request):
 @view_config(route_name='orbits', renderer='../templates/orbits_view.jinja2')
 def orbit_view(request):
     """Renders the view for the orbits."""
-    Orbits = request.dbsession.query(Orbit).filter(Orbit.orbit_body != 'Earth').all()
+    Orbits = request.dbsession.query(Orbit).all()
     return {
         "Orbits": Orbits
     }
