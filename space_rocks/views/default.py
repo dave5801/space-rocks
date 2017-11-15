@@ -30,7 +30,12 @@ def size_view(request):
 @view_config(route_name='distance', renderer='../templates/distance_view.jinja2')
 def distance_view(request):
     """Renders the distance view."""
+    from space_rocks.views.distance_graph import gather_data
     asteroids = request.dbsession.query(Distance).all()
+    asteroid_list = []
+    for neo in asteroids:
+        asteroid_list.append(neo)
+    graph = gather_data(asteroid_list)
     return {
         "asteroids": asteroids
     }
