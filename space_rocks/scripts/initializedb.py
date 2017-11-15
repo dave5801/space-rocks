@@ -53,8 +53,9 @@ def main(argv=sys.argv):
         absolute_magnitude_models = []
         orbit_models = []
         for item in SUPER_DICT:
-            if item['orbit_body'] == 'Earth':
+            if item['orbit_body'] == 'Earth' and '2016' in item['approach_date'] or '2017' in item['approach_date'] or '2018' in item['approach_date']:
                 new_size = Size(
+                    date=item['approach_date'],
                     neo_id=item["neo_id"],
                     name=item["name"],
                     url=item["rock_url"],
@@ -65,6 +66,7 @@ def main(argv=sys.argv):
                 )
                 size_models.append(new_size)
                 new_distance = Distance(
+                    date=item['approach_date'],
                     neo_id=item["neo_id"],
                     name=item["name"],
                     url=item["rock_url"],
@@ -75,16 +77,17 @@ def main(argv=sys.argv):
                 )
                 distance_models.append(new_distance)
                 new_absmag = AbsoluteMag(
+                    date=item['approach_date'],
                     neo_id=item["neo_id"],
                     name=item["name"],
                     url=item["rock_url"],
                     absolutemag=item["absmag"],
                     velocity_kps=item["velocity_kps"],
                     velocity_kph=item["velocity_kph"],
-                    velocity_mph=item["velocity_mph"],
                 )
                 absolute_magnitude_models.append(new_absmag)
                 new_orbit = Orbit(
+                    date=item['approach_date'],
                     neo_id=item["neo_id"],
                     name=item["name"],
                     url=item["rock_url"],
