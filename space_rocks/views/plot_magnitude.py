@@ -6,13 +6,13 @@ import os
 from space_rocks.CustomExceptions.custom_exceptions import UnknownAxisException
 from space_rocks.models.spacemodel import AbsoluteMag
 
+
 def graph_abs_magnitude(abs_mag=None, velocity=None):
     """Create Bokeh Scatter Plot."""
-
     if len(abs_mag) != len(velocity):
         raise UnknownAxisException
 
-    if abs_mag == None and velocity == None:
+    if abs_mag is None and velocity is None:
         abs_mag = []
         velocity = []
 
@@ -20,7 +20,6 @@ def graph_abs_magnitude(abs_mag=None, velocity=None):
     graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)), "static/abs_magnitude.html")
 
     output_file(graph_file_path)
-
 
     p = figure(
         title="Brightness and Velocity", tools="tap",
@@ -35,7 +34,7 @@ def graph_abs_magnitude(abs_mag=None, velocity=None):
     p.circle('x', 'y', color='color', size=20, source=source)
 
     url = "static/details_neo1.html"
-    #url = "http://www.colors.commutercreative.com/@color/" <---- save this for now, it is an example for later
+    # url = "http://www.colors.commutercreative.com/@color/" <---- save this for now, it is an example for later
     taptool = p.select(type=TapTool)
     taptool.callback = OpenURL(url=url)
 
@@ -44,7 +43,6 @@ def graph_abs_magnitude(abs_mag=None, velocity=None):
 
 if __name__ == '__main__':
 
-    abs = [1, 2, 3, 4, 5]
+    absolute = [1, 2, 3, 4, 5]
     vel = [2, 5, 8, 2, 7]
-
     graph_abs_magnitude(abs, vel)
