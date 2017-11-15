@@ -20,7 +20,7 @@ def about_view(request):
     return {}
 
 
-@view_config(route_name='size', renderer='../templates/size_view.jinja2')
+@view_config(route_name='size', renderer='space_rocks:templates/size_view.jinja2')
 def size_view(request):
     """Render the view page for the size view."""
     asteroids = request.dbsession.query(Size).all()
