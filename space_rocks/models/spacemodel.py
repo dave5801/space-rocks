@@ -59,7 +59,6 @@ class Orbit(Base):
     neo_id = Column(Unicode)
     name = Column(Unicode)
     url = Column(Unicode)
-    orbit_body = Column(Unicode)
     orbit_period = Column(Float)
     perihelion_dist = Column(Float)
     aphelion_dist = Column(Float)
