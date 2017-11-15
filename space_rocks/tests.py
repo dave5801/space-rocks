@@ -51,7 +51,16 @@ def test_absolute_magnitude_viewreturns_dict():
     response = absolute_magnitude_view(req)
     assert isinstance(response, dict)
 
+
 def test_abs_magnitude_graph_exists_no_arguments():
+    """Test if absolute magnitude scatter plot is generated with no arguments passed."""
     from space_rocks.views.plot_magnitude import graph_abs_magnitude
     graph_abs_magnitude()
+    assert os.path.isfile("static/abs_magnitude.html") 
+
+
+def test_abs_magnitude_graph_exists_no_arguments():
+    """Test if absolute magnitude scatter plot is generated with no arguments passed."""
+    from space_rocks.views.plot_magnitude import graph_abs_magnitude
+    graph_abs_magnitude([],[])
     assert os.path.isfile("static/abs_magnitude.html") 
