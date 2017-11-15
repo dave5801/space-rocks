@@ -3,11 +3,13 @@
 from bokeh.models import ColumnDataSource, OpenURL, TapTool
 from bokeh.plotting import figure, output_file, show
 import os
-
+from space_rocks.CustomExceptions.custom_exceptions import UnknownAxisException
 
 def graph_abs_magnitude(abs_mag=None, velocity=None):
     """Create Bokeh Scatter Plot."""
 
+    if len(abs_mag) != len(velocity):
+        raise UnknownAxisException
 
     if abs_mag == None and velocity == None:
         abs_mag = []
@@ -24,7 +26,7 @@ def graph_abs_magnitude(abs_mag=None, velocity=None):
 
     p = figure(
         title="Brightness and Velocity", tools="tap",
-        x_axis_label='Absolute Magnitude', y_axis_label='Velocity'
+        x_axis_label='Absolute Magnitude', y_axis_label='Velocity km/s'
     )
 
     source = ColumnDataSource(data=dict(
