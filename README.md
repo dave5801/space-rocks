@@ -21,5 +21,5 @@ understanding of Near Earth Objects, as well as past or potential impacts.
 
 - Adrienne Karnoski
 - Chaitanya Narukulla
-- Cody Dibble
+- Cody Dibble(lul)
 - David Franklin
