@@ -7,7 +7,7 @@ def main(global_config, **settings):
     """
     settings["sqlalchemy.url"] = os.environ["DATABASE_URL"]
     config = Configurator(settings=settings)
-    config.add_static_view('static', 'static', cache_max_age=3600)
+    config.add_static_view('static', 'static')
     config.include('pyramid_jinja2')
     config.include('.routes')
     config.include('.models')
