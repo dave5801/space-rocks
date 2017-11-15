@@ -2,11 +2,9 @@
 from pyramid.view import view_config
 from space_rocks.models.spacemodel import (
     Distance,
-    Orbit)
+    Orbit,
     Size,
-    AbsoluteMag,
-    Orbit)
-
+    AbsoluteMag)
 
 
 @view_config(route_name='home', renderer='../templates/index.jinja2')
@@ -35,10 +33,15 @@ def distance_view(request):
     """Renders the distance view."""
     from space_rocks.views.distance_graph import gather_data
     asteroids = request.dbsession.query(Distance).all()
-    asteroid_list = []
+    # asteroid_list = []
+    # for neo in asteroids:
+    #     asteroid_list.append(neo)
+    # graph = gather_data(asteroid_list)
+    max_neo = 298875360.0
     for neo in asteroids:
-        asteroid_list.append(neo)
-    graph = gather_data(asteroid_list)
+        if neo.kilometers < max_neo:
+            max_neo = neo.kilometers
+    print(max_neo)
     return {
         "asteroids": asteroids
     }

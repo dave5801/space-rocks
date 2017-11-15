@@ -1,16 +1,17 @@
 {% extends "layout.jinja2" %}
 
 {% block content %}
+{% include '../static/distance.html' %}
 <ul>
     {% for neo in asteroids %}
     <li>{{neo.id}}</li>
-    <li>{{neo.neo_id}}</li>
-    <li>{{neo.name}}</li>
-    <li>{{neo.url}}</li>
-    <li>{{neo.astronomical}}</li>
-    <li>{{neo.lunar}}</li>
-    <li>{{neo.kilometers}}</li>
-    <li>{{neo.miles}}</li>
+    <li>neo id: {{neo.neo_id}}</li>
+    <li>name: {{neo.name}}</li>
+    <li>url: {{neo.url}}</li>
+    <li>astronomical: {{neo.astronomical}}</li>
+    <li>lunar: {{neo.lunar}}</li>
+    <li>kilomaters: {{neo.kilometers}}</li>
+    <li>miles: {{neo.miles}}</li>
     {% endfor %}
 </ul>
 {% endblock %}
