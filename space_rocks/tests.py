@@ -1,14 +1,45 @@
 """Testing our Views."""
+from pyramid import testing
 from pyramid.testing import DummyRequest
 import pytest
 import os.path
 from space_rocks.CustomExceptions.custom_exceptions import UnknownAxisException
+from space_rocks.models.meta import Base
+from space_rocks.models.spacemodel import (
+    Distance,
+    Orbit,
+    Size,
+    AbsoluteMag)
+
 
 
 @pytest.fixture
 def dummy_request():
     """Set up a dummy request for testing."""
     return DummyRequest()
+
+
+@pytest.fixture(scope="session")
+def configuration(request):
+    """Set up a Configurator instance.
+
+    This Configurator instance sets up a pointer to the location of the
+        database.
+    It also includes the models from your app's model package.
+    Finally it tears everything down, including the in-memory SQLite database.
+
+    This configuration will persist for the entire duration of your PyTest run.
+    """
+    config = testing.setUp(settings={
+        'sqlalchemy.url': 'postgres:///test_database'
+    })
+    config.include("pyramid_learning_journal.models")
+
+    def teardown():
+        testing.tearDown()
+
+    request.addfinalizer(teardown)
+    return config
 
 
 def test_home_view_returns_empty_dict(dummy_request):
@@ -20,12 +51,22 @@ def test_home_view_returns_empty_dict(dummy_request):
 
 
 def test_about_view_returns_empty_dict(dummy_request):
-     """Test about view creation."""
+    """Test about view creation."""
     from space_rocks.views.default import about_view
     dummy_request.method = "POST"
     response = about_view(dummy_request)
     assert response == {}
 
+
+'''
+def test_size_view_returns_with_size_graph_data(dummy_request):
+    """."""
+    from space_rocks.views.default import size_view
+
+    dummy_request.method = "POST"
+    response = size_view(dummy_request)
+    assert response == {}
+'''
 
 def test_abs_magnitude_graph_no_arguments_returns_exception():
     """Test if absolute magnitude graph's raises exception, no args."""
