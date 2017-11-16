@@ -33,7 +33,7 @@ def configuration(request):
     config = testing.setUp(settings={
         'sqlalchemy.url': 'postgres:///test_database'
     })
-    config.include("pyramid_learning_journal.models")
+    config.include("space_rocks.models")
 
     def teardown():
         testing.tearDown()
@@ -42,21 +42,52 @@ def configuration(request):
     return config
 
 
-def test_home_view_returns_empty_dict(dummy_request):
+@pytest.fixture
+def db_session(configuration, request):
+    """Create a session for interacting with the test database.
+
+    This uses the dbsession_factory on the configurator instance to create a
+    new database session. It binds that session to the available engine
+    and returns a new session for every call of the dummy_request object.
+    """
+    SessionFactory = configuration.registry["dbsession_factory"]
+    session = SessionFactory()
+    engine = session.bind
+    Base.metadata.create_all(engine)
+
+    def teardown():
+        session.transaction.rollback()
+        Base.metadata.drop_all(engine)
+
+    request.addfinalizer(teardown)
+    return session
+
+
+@pytest.fixture
+def dummy_request(db_session):
+    """Instantiate a fake HTTP Request, complete with a database session.
+    This is a function-level fixture, so every new request will have a
+    new database session.
+    """
+    return testing.DummyRequest(dbsession=db_session)
+
+
+def test_home_view_returns_dict(dummy_request):
     """Test home view creation."""
     from space_rocks.views.default import home_view
-    dummy_request.method = "POST"
     response = home_view(dummy_request)
-    assert response == {}
+    assert isinstance(response, dict)
 
 
+
+'''
 def test_about_view_returns_empty_dict(dummy_request):
     """Test about view creation."""
     from space_rocks.views.default import about_view
     dummy_request.method = "POST"
     response = about_view(dummy_request)
     assert response == {}
-
+'''
 
 '''
 def test_size_view_returns_with_size_graph_data(dummy_request):
