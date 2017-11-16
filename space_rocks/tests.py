@@ -11,6 +11,14 @@ def dummy_request():
     return DummyRequest()
 
 
+def test_home_view_returns_empty_dict(dummy_request):
+    """Test home view creation."""
+    from space_rocks.views.default import home_view
+    dummy_request.method = "POST"
+    response = home_view(dummy_request)
+    assert response == {}
+
+
 def test_abs_magnitude_graph_no_arguments_returns_exception():
     """Test if absolute magnitude graph's raises exception, no args."""
     from space_rocks.views.plot_magnitude import graph_abs_magnitude
