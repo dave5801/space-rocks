@@ -1,4 +1,4 @@
-"""."""
+"""View functions."""
 from pyramid.view import view_config
 from space_rocks.models.spacemodel import (
     Distance,
@@ -24,11 +24,9 @@ def size_view(request):
     """Render the view page for the size view."""
     from space_rocks.views.size_chart import size_chart
     asteroids = request.dbsession.query(Size).order_by(Size.feet.desc()).all()
-    script, div = size_chart(asteroids)
+    size_chart(asteroids)
     return {
-        "asteroids": asteroids,
-        "script": script,
-        "div": div
+        "asteroids": asteroids
     }
 
 

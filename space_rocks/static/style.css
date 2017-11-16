@@ -1,6 +1,35 @@
-.image_right {
-    float: right;
-    width: 40%;
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #dbe2e6
+    background-color: #ffffff0f;
+}
+
+h1, h3, h5{
+     color: #09599e;
+}
+
+h2, h4, h6, p .h1, .h2, .h3, .h4, .h5, .h6, .p{
+    font-weight: 700;
+    line-height: 1.1;
+    font-family: 'Lato', sans-serif;
+    color:#1189f1;
+}
+
+/*SpaceRocks title*/
+img {
+    float: left;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    border-radius: 23px;
+
+}
+
+.aboutus{
+color:#151715c9;
+padding:5px;
 }
 
 .left {
@@ -10,6 +39,7 @@
 
 .title {
     font-size: 5em;
+     color: White;
 }
 
 .title_two {
@@ -18,24 +48,48 @@
 }
 
 /*Nav bar*/
+.navbar-default .navbar-nav>li>a {
+    color: #000000c7;
+}
 
+nav {
+    margin: 0 auto;
+    margin-top: 3em;
+    width: auto;
+}
 
+#wrapper {
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+}
+nav ul li:hover {
+  background-color: #0e7ed4;
+}
+
+li {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 1px;
+  margin-right:auto;
+  margin-left:auto;
+  border-radius: 10px;
+  text-align: center;
+}
 
 #navbar-toggle-cbox {
   display:none
 }
+
 #navbar-toggle-cbox:checked ~ .collapse {
     display: block;
 }
+
 .navbar-default {
     background-color: #dddddd63;
     border-color: #9999991a;
 }
 
-/*.navbar-default .navbar-nav>li>a {
-    color: #09599e;
-    font-size:20px;
-}*/
 /*
 Video on page*/
 * { box-sizing: border-box; }
@@ -76,31 +130,3 @@ Video on page*/
 }
 
 
-/*Scorelling*/
-
-nav {
-    margin: 0 auto;
-    margin-top: 3em;
-    width: auto;
-}
-
-#wrapper {
-      margin: 0 auto;
-      width: 100%;
-      text-align: center;
-}
-nav ul li:hover {
-  background-color: black;
-}
-
-li {
-  display: block;
-  font-size: 20px;
-  margin-bottom: 1px;
-  margin-right:auto;
-  margin-left:auto;
-  border-radius: 10px;
-  text-align: center;
-
- 
-}

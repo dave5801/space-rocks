@@ -1,3 +1,4 @@
+"""Initialising DataBase."""
 import os
 import pickle
 import sys
