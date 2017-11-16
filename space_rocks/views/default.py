@@ -23,11 +23,13 @@ def about_view(request):
 @view_config(route_name='size', renderer='space_rocks:templates/size_view.jinja2')
 def size_view(request):
     """Render the view page for the size view."""
-    from space_rocks.views.bar_chart import test_chart
+    from space_rocks.views.size_chart import size_chart
     asteroids = request.dbsession.query(Size).order_by(Size.feet.desc()).all()
-    test_chart(asteroids)
+    script, div = size_chart(asteroids)
     return {
-        "asteroids": asteroids
+        "asteroids": asteroids,
+        "script": script,
+        "div": div
     }
 
 
