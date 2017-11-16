@@ -52,12 +52,15 @@ def absolute_magnitude_view(request):
 
     mag_axis = []
     vel_axis = []
+    neo_names = []
 
     for i in range(len(plot_data)):
         mag_axis.append(plot_data[i].absolutemag)
         vel_axis.append(plot_data[i].velocity_kps)
+        #print(plot_data[i].neo_id)
+        neo_names.append(plot_data[i].neo_id)
 
-    graph_abs_magnitude(mag_axis, vel_axis)
+    graph_abs_magnitude(mag_axis, vel_axis, neo_names)
 
     return {}
 
