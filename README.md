@@ -18,14 +18,23 @@ understanding of Near Earth Objects, as well as past or potential impacts.
 - `pip install` this package into your virtual environment.
 
 ## Testing:
-- 'pip install tox' this installs tox, a framework for standardized testing in python.
-- 'pip install pytest' this installs testing framework used to test our platform.
-- 'pytest' this runs tests.
+- `pip install tox` this installs tox, a framework for standardized testing in python.
+- `pip install pytest` this installs testing framework used to test our platform.
+- `pytest` to runs tests in only Python 3.6.
+- `tox` to run tests for both versions of Python (2.7 and 3.6)
 
+## Built With
+- [Pyramid](https://trypyramid.com/) - The web framework used.
+- [Bokeh](https://bokeh.pydata.org/en/latest/) - Data visualization tool used.
 
 ## Authors
 
 - Adrienne Karnoski
 - Chaitanya Narukulla
-- Cody Dibble(lul)
+- Cody Dibble
 - David Franklin
+
+## Acknowledgements
+
+- The TAs and Nick for their extreme patience and help in debugging problems.
+- Google for always being there to help fix issues
