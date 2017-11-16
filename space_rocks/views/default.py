@@ -1,4 +1,4 @@
-"""."""
+"""View functions."""
 from pyramid.view import view_config
 from space_rocks.models.spacemodel import (
     Distance,
@@ -24,11 +24,9 @@ def size_view(request):
     """Render the view page for the size view."""
     from space_rocks.views.size_chart import size_chart
     asteroids = request.dbsession.query(Size).order_by(Size.feet.desc()).all()
-    script, div = size_chart(asteroids)
+    size_chart(asteroids)
     return {
-        "asteroids": asteroids,
-        "script": script,
-        "div": div
+        "asteroids": asteroids
     }
 
 
@@ -51,17 +49,16 @@ def absolute_magnitude_view(request):
     """Render the view for absolute mignitude."""
     from space_rocks.views.plot_magnitude import graph_abs_magnitude
 
-    plot_data = request.dbsession.query(AbsoluteMag).all()
+    mag_data = request.dbsession.query(AbsoluteMag).all()
 
     mag_axis = []
     vel_axis = []
     neo_names = []
 
-    for i in range(len(plot_data)):
-        mag_axis.append(plot_data[i].absolutemag)
-        vel_axis.append(plot_data[i].velocity_kps)
-        #print(plot_data[i].neo_id)
-        neo_names.append(plot_data[i].neo_id)
+    for i in range(len(mag_data)):
+        mag_axis.append(mag_data[i].absolutemag)
+        vel_axis.append(mag_data[i].velocity_kps)
+        neo_names.append(mag_data[i].neo_id)
 
     graph_abs_magnitude(mag_axis, vel_axis, neo_names)
 
