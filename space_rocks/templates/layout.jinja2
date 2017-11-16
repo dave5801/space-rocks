@@ -9,33 +9,33 @@
     <link rel="icon" href="{{ request.static_url('space_rocks:static/asteroids-icon.png') }}">
     <link href="http://cdn.pydata.org/bokeh/release/bokeh-x.y.z.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>
+<!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-    <!--BOOTSTRAP-->
+ <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-
     <title>SpaceRocks</title>
 
-    <!-- Bootstrap core CSS -->
+<!-- Bootstrap core CSS -->
     <link href="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this scaffold -->
+<!-- Custom styles for this scaffold -->
     <link href="{{request.static_url('space_rocks:static/style.css')}}" rel="stylesheet">
   </head>
 
-  <body>
-<!-- NAV BAR  -->
-<div class="video-background">
+<body>
+<!-- Vedio links  -->
+    <div class="video-background">
     <div class="video-foreground">
 <!-- <iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ" frameborder="0" allowfullscreen></iframe>  -->
 <!-- <iframe src="https://www.youtube.com/embed/hBTS2CRl_hI?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ" frameborder="0" allowfullscreen></iframe> -->
-<iframe src="https://www.youtube.com/embed/IDrPm0aD4og?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ" frameborder="0" allowfullscreen></iframe>
-</div>
-  </div>
+    <iframe src="https://www.youtube.com/embed/IDrPm0aD4og?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ" frameborder="0" allowfullscreen></iframe>
+    </div>
+    </div><div id="vidtop-content"></div>
 
-<div id="vidtop-content">
-</div>
+<!-- Hamburger -NavBar -->
   <div class="container">
-<nav class="navbar navbar-default" >
+  <nav class="navbar navbar-default" >
       <input type="checkbox" id="navbar-toggle-cbox">
       <div class="navbar-header">
         <label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -45,26 +45,28 @@
           <span class="icon-bar"></span>
         </label>
       </div>
+<!-- NavBar Links -->
       <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="{{ request.route_url('home') }}">Home</a></li>
-          <li><a href="{{ request.route_url('orbits') }}">Orbits</a></li>
-          <li><a href="{{ request.route_url('absmag') }}">Absolute magnitude</a></li>
-          <li><a href="{{ request.route_url('size') }}">Size</a></li>
-          <li><a href="{{ request.route_url('distance') }}">Distance</a></li>
-          <li><a href="{{ request.route_url('about') }}">About</a></li>
-        </ul>
+          <ul class="nav navbar-nav">
+            <li><a href="{{ request.route_url('home') }}">Home</a></li>
+            <li><a href="{{ request.route_url('orbits') }}">Orbits</a></li>
+            <li><a href="{{ request.route_url('absmag') }}">Absolute magnitude</a></li>
+            <li><a href="{{ request.route_url('size') }}">Size</a></li>
+            <li><a href="{{ request.route_url('distance') }}">Distance</a></li>
+            <li><a href="{{ request.route_url('about') }}">About</a></li>
+          </ul>
+        </div>
       </div>
-  </div>
-</nav>
-<div class="container">
-  {% block content %}{% endblock %}
-</div>
-<footer>
-  <div class="container">
-      <!-- <p class="copyright text-muted">Copyright &copy;</p> -->
-  </div>
-</footer>
+    </nav>
 
-</body>
+      <div class="container">
+      {% block content %}{% endblock %}
+      </div>
+    <footer>
+      <div class="container">
+      <!-- <p class="copyright text-muted">Copyright &copy;</p> -->
+      </div>
+    </footer>
+
+  </body>
 </html>
