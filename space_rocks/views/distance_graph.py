@@ -52,9 +52,9 @@ def create_chart(chart_data):
         )
 
     p1.xaxis.axis_label = "Lunar Distance"
-    p1.xgrid.grid_line_color = "#240090"
+    p1.xgrid.grid_line_color = None
     p1.yaxis.axis_label = "Lunar Distance"
-    p1.ygrid.grid_line_color = "#240090"
+    p1.ygrid.grid_line_color = None
     p1.legend.background_fill_color = "black"
     p1.legend.label_text_color = "white"
     p1.circle(
@@ -63,6 +63,14 @@ def create_chart(chart_data):
         legend='Earth',
         radius=0.145,
         fill_color='red',
+        fill_alpha=0.6,
+        line_color=None)
+    p1.circle(
+        x=0,
+        y=1,
+        legend='Moop',
+        radius=0.145,
+        fill_color='blue',
         fill_alpha=0.6,
         line_color=None)
     p1.circle(
@@ -88,14 +96,14 @@ def create_chart(chart_data):
         )
 
     p2.xaxis.axis_label = "Lunar Distance"
-    p2.xgrid.grid_line_color = "#240090"
+    p2.xgrid.grid_line_color = None
     p2.yaxis.axis_label = "Lunar Distance"
-    p2.ygrid.grid_line_color = "#240090"
+    p2.ygrid.grid_line_color = None
 
     p2.circle(
         x=0,
         y=0,
-        radius=0.09,
+        radius=0.11,
         fill_color='red',
         fill_alpha=0.6,
         line_color=None)
@@ -121,9 +129,9 @@ def create_chart(chart_data):
         )
 
     p3.xaxis.axis_label = "Lunar Distance"
-    p3.xgrid.grid_line_color = "#240090"
+    p3.xgrid.grid_line_color = None
     p3.yaxis.axis_label = "Lunar Distance"
-    p3.ygrid.grid_line_color = "#240090"
+    p3.ygrid.grid_line_color = None
 
     p3.circle(
         x=0,
@@ -154,9 +162,9 @@ def create_chart(chart_data):
         )
 
     p4.xaxis.axis_label = "Lunar Distance"
-    p4.xgrid.grid_line_color = "#240090"
+    p4.xgrid.grid_line_color = None
     p4.yaxis.axis_label = "Lunar Distance"
-    p4.ygrid.grid_line_color = "#240090"
+    p4.ygrid.grid_line_color = None
 
     p4.circle(
         x=0,
@@ -187,9 +195,9 @@ def create_chart(chart_data):
         )
 
     p5.xaxis.axis_label = "Lunar Distance"
-    p5.xgrid.grid_line_color = "#240090"
+    p5.xgrid.grid_line_color = None
     p5.yaxis.axis_label = "Lunar Distance"
-    p5.ygrid.grid_line_color = "#240090"
+    p5.ygrid.grid_line_color = None
 
     p5.circle(
         x=0,
