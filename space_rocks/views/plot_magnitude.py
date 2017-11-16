@@ -59,11 +59,20 @@ def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
                 </div>
                 """)
 
-            p = figure(plot_width=400, plot_height=400, tools=[hover],
-                       title="Brightness and Velocity", 
-                       x_axis_label='Absolute Magnitude', y_axis_label='Velocity km/s')
+            p = figure(plot_width=850,
+                       plot_height=850,
+                       tools=[hover],
+                       title="Brightness and Velocity",
+                       x_axis_label='Absolute Magnitude',
+                       y_axis_label='Velocity km/s',
+                       background_fill_color='black',
+                       background_fill_alpha=0.8,
+                       border_fill_color='black',
+                       border_fill_alpha=0.8,
+                       toolbar_location=None,
+                       )
 
-            p.circle('x', 'y', size=20, source=source)
+            p.circle('x', 'y', size=10, source=source)
 
             save(p)
         else:
