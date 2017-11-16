@@ -16,3 +16,12 @@
     color: #3500d3;
 }
 
+#navbar-toggle-cbox {
+  display:none
+}
+#navbar-toggle-cbox:checked ~ .collapse {
+    display: block;
+}
+body{
+ background-color: black;
+}
