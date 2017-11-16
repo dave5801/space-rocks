@@ -79,6 +79,25 @@ def test_home_view_returns_dict(dummy_request):
     assert isinstance(response, dict)
 
 
+def test_about_view_returns_dict(dummy_request):
+    """Test about view creation."""
+    from space_rocks.views.default import about_view
+    response = about_view(dummy_request)
+    assert isinstance(response, dict)
+
+
+def test_size_view_returns_dict(dummy_request):
+    """Test size view creation."""
+    from space_rocks.views.default import size_view
+    response = size_view(dummy_request)
+    assert isinstance(response, dict)
+
+
+def test_distance_view_returns_dict(dummy_request):
+    """Test size view creation."""
+    from space_rocks.views.default import distance_view
+    response = distance_view(dummy_request)
+    assert isinstance(response, dict)
 
 '''
 def test_about_view_returns_empty_dict(dummy_request):
