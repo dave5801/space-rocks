@@ -111,6 +111,11 @@ li {
   width: 100%;
 }
 
+.bk-bs-nav-tabs li {
+  width: 150px;
+  font-size: 14px;
+}
+
 .distance_page {
   background: black;
 }

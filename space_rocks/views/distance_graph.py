@@ -6,35 +6,34 @@ import random
 
 
 def gather_data(asteroids):
-    """Take all asteroids a break down into lists for chart."""
-    lunar_list = []
-    neo_id_list = []
-    name_list = []
+    """Take all asteroids an create dictionary for chart."""
+    neo_dict = {
+        'lunar_list': [],
+        'neo_id_list': [],
+        'name_list': [],
+        'x_numbers': [],
+        'y_numbers': [],
+    }
+
     for neo in asteroids:
-        lunar_list.append(neo.lunar)
-        neo_id_list.append(neo.neo_id)
-        name_list.append(neo.name)
-    create_chart_data(lunar_list)
-    return [lunar_list, neo_id_list, name_list]
+        neo_dict['lunar_list'].append(neo.lunar)
+        neo_dict['neo_id_list'].append(neo.neo_id)
+        neo_dict['name_list'].append(neo.name)
 
+    num = len(neo_dict['lunar_list'])//2
 
-def create_chart_data(asteroid_list):
-    """Create x and y axes based of lunar distance."""
-    x_numbers = []
-    y_numbers = []
-    N = len(asteroid_list)
-    num = N//2
-    for neo in asteroid_list[:num]:
+    for neo in neo_dict['lunar_list'][:num]:
         a = random.uniform(0.1, neo)
-        x_numbers.append(neo - a)
-        y_numbers.append(a)
-    for neo in asteroid_list[num:]:
+        neo_dict['x_numbers'].append(neo - a)
+        neo_dict['y_numbers'].append(a)
+
+    for neo in neo_dict['lunar_list'][num:]:
         a = random.uniform(0.1, neo)
         b = neo - a
-        x_numbers.append(-b)
-        y_numbers.append(a)
-    create_chart(N, x_numbers, y_numbers)
-    return [N, x_numbers, y_numbers]
+        neo_dict['x_numbers'].append(-b)
+        neo_dict['y_numbers'].append(a)
+
+    create_chart(neo_dict)
 
 
 def create_dictionaries():
@@ -64,13 +63,13 @@ def create_dictionaries():
     d3 = {
             'p': 'p3',
             'tab': 'tab3',
-            'x_min': -5.5,
-            'x_max': 5.5,
-            'y_min': -0.5,
-            'y_max': 5.5,
-            'earth_rad': 0.11,
-            'moon_rad': 0.11,
-            'neo_rad': 0.06,
+            'x_min': -2.5,
+            'x_max': 2.5,
+            'y_min': -0.2,
+            'y_max': 2.5,
+            'earth_rad': 0.05,
+            'moon_rad': 0.05,
+            'neo_rad': 0.03,
         }
     d4 = {
             'p': 'p4',
@@ -97,12 +96,13 @@ def create_dictionaries():
     return [d1, d2, d3, d4, d5]
 
 
-def create_chart(number, x_axes, y_axes):
+def create_chart(neo_dict):
+    """Create the chart."""
     dictionaries = create_dictionaries()
-    data = gather_data()
-    distance = data[0]
-    neo_id = data[1]
-    names = data[2]
+    distance = neo_dict['lunar_list']
+    neo_id = neo_dict['neo_id_list']
+    names = neo_dict['name_list']
+    display = []
 
     for d in dictionaries:
         d['p'] = figure(
@@ -117,12 +117,11 @@ def create_chart(number, x_axes, y_axes):
             toolbar_location=None,
             )
 
-        # d['p'].xaxis.axis_label = "Lunar Distance"
-        # d['p'].xgrid.grid_line_color = None
-        # d['p'].yaxis.axis_label = "Lunar Distance"
-        # d['p'].ygrid.grid_line_color = None
-        # d['p'].legend.background_fill_color = "black"
-        # d['p'].legend.label_text_color = "white"
+        d['p'].xgrid.grid_line_color = None
+        d['p'].yaxis.axis_label = "Lunar Distance"
+        d['p'].ygrid.grid_line_color = None
+        d['p'].xaxis.visible = False
+
         d['p'].circle(
             x=0,
             y=0,
@@ -140,8 +139,8 @@ def create_chart(number, x_axes, y_axes):
             fill_alpha=0.6,
             line_color=None)
         d['p'].circle(
-            x_axes,
-            y_axes,
+            neo_dict['x_numbers'],
+            neo_dict['y_numbers'],
             radius=d['neo_rad'],
             legend='Asteroids',
             fill_color='#FFFFFF',
@@ -153,67 +152,7 @@ def create_chart(number, x_axes, y_axes):
         display.append(d['tab'])
 
     output_file('space_rocks/static/distance.html')
-    display = []
+
     tabs = Tabs(tabs=display)
 
     save(tabs)
-
-
-# def create_chart(number, x_axes, y_axes):
-#     dictionaries = create_dictionaries()
-#     data = gather_data()
-#     distance = data[0]
-#     neo_id = data[1]
-#     names = data[2]
-
-#     for d in dictionaries:
-#         d['p'] = figure(
-#             tools=" ",
-#             x_range=(-14.5, 14.5),
-#             y_range=(-0.5, 14.5),
-#             plot_width=1200,
-#             plot_height=780,
-#             background_fill_color="black",
-#             border_fill_color="black",
-#             outline_line_color="black",
-#             toolbar_location=None,
-#             )
-
-#         d['p'].xaxis.axis_label = "Lunar Distance"
-#         d['p'].xgrid.grid_line_color = None
-#         d['p'].yaxis.axis_label = "Lunar Distance"
-#         d['p'].ygrid.grid_line_color = None
-#         d['p'].legend.background_fill_color = "black"
-#         d['p'].legend.label_text_color = "white"
-#         d['p'].circle(
-#             x=0,
-#             y=0,
-#             legend='Earth',
-#             radius=0.145,
-#             fill_color='red',
-#             fill_alpha=0.6,
-#             line_color=None)
-#         d['p'].circle(
-#             x=0,
-#             y=1,
-#             legend='Moop',
-#             radius=0.145,
-#             fill_color='blue',
-#             fill_alpha=0.6,
-#             line_color=None)
-#         d['p'].circle(
-#             x,
-#             y,
-#             radius=0.08,
-#             legend='Not Earth',
-#             fill_color='#FFFFFF',
-#             fill_alpha=0.6,
-#             line_color=None)
-#         d['tab'] = Panel(child=d['p'], title="NEOs <= 14.5 Lunar Distance")
-#         display.append(d['tab'])
-
-#     output_file('space_rocks/static/distance.html')
-#     display = []
-#     tabs = Tabs(tabs=display)
-
-#     save(tabs)
