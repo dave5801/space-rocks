@@ -19,22 +19,16 @@ def size_chart(asteroid_list):
     size_2016 = []
     size_2017 = []
     size_2018 = []
-    name_2016 = []
-    name_2017 = []
-    name_2018 = []
     for item in asteroid_list:
         if '2016' in item.date:
             y_axis_2016.append(float('{0:.4f}'.format(item.feet)))
             size_2016.append(float('{0:.2f}'.format(item.feet / 13)))
-            name_2016.append(item.name)
         if '2017' in item.date:
             y_axis_2017.append(float('{0:.4f}'.format(item.feet)))
             size_2017.append(float('{0:.2f}'.format(item.feet / 13)))
-            name_2017.append(item.name)
         if '2018' in item.date:
             y_axis_2018.append(float('{0:.4f}'.format(item.feet)))
             size_2018.append(float('{0:.2f}'.format(item.feet / 13)))
-            name_2018.append(item.name)
     x_axis = [randint(1, 356) for _ in range(len(asteroid_list))]
 
     p = figure(
