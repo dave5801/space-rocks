@@ -2,12 +2,17 @@
 
 {% block content %}
     {% for neo in Orbits %}
-    <h1>Name of NEO : <a href ="{{neo.url}}" target="_blank">{{neo.name}}</a></h1>
-    <h3>Id of NEO : {{neo.neo_id}}</h3>
+    <div class="clearfix">
+    <div class="card-body">
+    <h1>Name of NEO : {{neo.name}}</h1>
+    <h3>ID #: {{neo.neo_id}}</h3>
     <h4>Orbit Peroid : {{neo.orbit_period}}</h4>
     <h5>Perinelion distance : {{neo.perihelion_dist}}</h5>
     <h5>Aphelion distance : {{neo.aphelion_dist}}</h5>
     <h5>Eccentricity : {{neo. eccentricity}}</h5>
-<br>
+    <a href ="{{neo.url}}" target="_blank" class="btn btn-secondary"><h2>Indepth Orbit Detail &rarr;</h2></a>
+<hr>
+</div>
+</div>
     {% endfor %}
 {% endblock %}
