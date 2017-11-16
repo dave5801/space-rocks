@@ -2,6 +2,7 @@
 
 {% block content %}
 {% include '../static/distance.html' %}
+{{ asteroids|length}}
 <ul>
     {% for neo in asteroids %}
     <li>{{neo.id}}</li>
