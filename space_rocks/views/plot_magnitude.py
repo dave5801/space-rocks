@@ -1,4 +1,8 @@
-"""Class for Scatter Plot -to be integrated with API calls."""
+"""Function to create a bokeh scatter plot.
+
+    It takes in the absolute magnitude, relative velocity and N.E.O's name and returns
+    a scatter plot charting them.
+"""
 
 import os
 from bokeh.plotting import figure, output_file, save, ColumnDataSource
@@ -7,9 +11,9 @@ from space_rocks.CustomExceptions.custom_exceptions import UnknownAxisException
 
 
 def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
-    """Create Bokeh Scatter Plot."""
-    
-    """Redundant checks in case API provides incomplete info."""
+    """Create bokeh scatter plot."""
+
+    """Redundancy checks."""
     if len(abs_mag) != len(velocity):
         raise UnknownAxisException
 
@@ -17,17 +21,11 @@ def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
         abs_mag = []
         velocity = []
 
-
     """Create absolute file path for embedded html graph."""
     here = os.path.abspath(__file__)
-    graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)),"static/abs_magnitude.html")
+    graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)), "static/abs_magnitude.html")
 
     output_file(graph_file_path)
-
-    p = figure(
-        title="Brightness and Velocity", tools="tap",
-        x_axis_label='Absolute Magnitude', y_axis_label='Velocity km/s'
-    )
 
     source = ColumnDataSource(data=dict(
         x=abs_mag,
@@ -62,18 +60,11 @@ def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
         </div>
         """)
 
-    p = figure(plot_width=400, plot_height=400, tools=[hover],
-               title="Brightness and Velocity", 
+    p = figure(plot_width=800, plot_height=800, tools=[hover],
+               title="Brightness and Velocity",
                x_axis_label='Absolute Magnitude', y_axis_label='Velocity km/s')
 
-    p.circle('x', 'y', size=20, source=source)
+    p.circle('x', 'y', size=10, source=source)
 
     save(p)
 
-
-if __name__ == '__main__':
-    mag = [1, 2, 3, 4, 5]
-    vel = [2, 5, 8, 2, 7]
-    neo_names = ["ceres", "phobos", "deimos", "asteroid x", "it was earth all along!!"]
-
-    graph_abs_magnitude(mag, vel, neo_names)
