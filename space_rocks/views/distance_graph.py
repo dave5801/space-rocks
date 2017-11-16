@@ -3,6 +3,7 @@ from bokeh.models import ColumnDataSource, BoxZoomTool, HoverTool
 from space_rocks.models.spacemodel import Distance
 from bokeh.models.widgets import Panel, Tabs
 import random
+import os
 
 
 def gather_data(asteroids):
@@ -37,7 +38,11 @@ def create_chart(chart_data):
     x = chart_data[1]
     y = chart_data[2]
 
-    output_file('space_rocks/static/distance.html')
+    #output_file('space_rocks/static/distance.html')
+    here = os.path.abspath(__file__)
+    graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)),"static/distance.html")
+
+    output_file(graph_file_path)
 
     p1 = figure(
         tools=" ",
