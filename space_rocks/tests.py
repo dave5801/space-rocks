@@ -56,6 +56,18 @@ def test_abs_magnitude_graph_missing_neo_names_returns_exception():
     with pytest.raises(UnknownAxisException):
         graph_abs_magnitude(test_mag, test_vel,[])
 
+
+def test_abs_magnitude_graph_exists_simple_arguments():
+    """Test if absolute magnitude scatter plot is generated with arguments passed."""
+    from space_rocks.views.plot_magnitude import graph_abs_magnitude
+
+    test_mag = [1, 2, 3, 4, 5]
+    test_vel = [2, 5, 8, 2, 7]
+    test_neo_names = ["ceres", "phobos", "deimos", "asteroid x", "it was earth all along!!"]
+
+    graph_abs_magnitude(test_mag, test_vel, test_neo_names)
+    assert os.path.isfile("static/abs_magnitude.html")
+
 '''
 def test_abs_magnitude_graph_exists_no_arguments():
     """Test if absolute magnitude scatter plot is generated with no arguments passed."""
@@ -71,15 +83,7 @@ def test_abs_magnitude_graph_exists_no_arguments():
     assert os.path.isfile("static/abs_magnitude.html")
 
 
-def test_abs_magnitude_graph_exists_simple_arguments():
-    """Test if absolute magnitude scatter plot is generated with same length arguments passed."""
-    from space_rocks.views.plot_magnitude import graph_abs_magnitude
 
-    test_abs_mag = [1, 2, 3, 4, 5]
-    test_velocity = [2, 5, 8, 2, 7]
-
-    graph_abs_magnitude(test_abs_mag, test_velocity)
-    assert os.path.isfile("static/abs_magnitude.html")
 
 
 def test_abs_magnitude_graph_exists_real_arguments_arguments():
