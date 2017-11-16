@@ -65,9 +65,9 @@ def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
                x_axis_label='Absolute Magnitude', y_axis_label='Velocity km/s')
 
     p.circle('x', 'y', size=20, source=source)
-    url = "static/details_neo1.html"
-    taptool = p.select(type=TapTool)
-    taptool.callback = OpenURL(url=url)
+    #url = "static/details_neo1.html"
+    #taptool = p.select(type=TapTool)
+    #taptool.callback = OpenURL(url=url)
 
     save(p)
     # script, div = components(p)
