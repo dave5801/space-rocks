@@ -44,7 +44,7 @@ def create_chart(chart_data):
         x_range=(-14.5, 14.5),
         y_range=(-0.5, 14.5),
         plot_width=1200,
-        plot_height=800,
+        plot_height=780,
         background_fill_color="black",
         border_fill_color="black",
         outline_line_color="black",
@@ -59,7 +59,8 @@ def create_chart(chart_data):
     p1.circle(
         x=0,
         y=0,
-        radius=0.01,
+        legend='yes',
+        radius=0.145,
         fill_color='red',
         fill_alpha=0.6,
         line_color=None)
@@ -67,17 +68,18 @@ def create_chart(chart_data):
         x,
         y,
         radius=0.08,
+        legend='no',
         fill_color='#FFFFFF',
         fill_alpha=0.6,
         line_color=None)
-    tab1 = Panel(child=p1, title="circle")
+    tab1 = Panel(child=p1, title="NEOs <= 14.5 Lunar Distance")
 
     p2 = figure(
         tools=" ",
         x_range=(-5.5, 5.5),
         y_range=(-0.5, 5.5),
         plot_width=1200,
-        plot_height=800,
+        plot_height=780,
         background_fill_color="black",
         border_fill_color="black",
         outline_line_color="black",
@@ -92,7 +94,7 @@ def create_chart(chart_data):
     p2.circle(
         x=0,
         y=0,
-        radius=0.01,
+        radius=0.09,
         fill_color='red',
         fill_alpha=0.6,
         line_color=None)
@@ -103,12 +105,12 @@ def create_chart(chart_data):
         fill_color='#FFFFFF',
         fill_alpha=0.7,
         line_color=None)
-    tab2 = Panel(child=p2, title="other")
+    tab2 = Panel(child=p2, title="NEOs <= 5.5 Lunar Distance")
 
     p3 = figure(
         tools=" ",
         x_range=(-2.5, 2.5),
-        y_range=(-0.5, 2.5),
+        y_range=(-0.2, 2.5),
         plot_width=1200,
         plot_height=800,
         background_fill_color="black",
@@ -125,7 +127,7 @@ def create_chart(chart_data):
     p3.circle(
         x=0,
         y=0,
-        radius=0.01,
+        radius=0.05,
         fill_color='red',
         fill_alpha=0.6,
         line_color=None)
@@ -136,14 +138,14 @@ def create_chart(chart_data):
         fill_color='#FFFFFF',
         fill_alpha=0.6,
         line_color=None)
-    tab3 = Panel(child=p3, title="circle")
+    tab3 = Panel(child=p3, title="NEOs <= 2.5 Lunar Distance")
 
     p4 = figure(
         tools=" ",
         x_range=(-1.5, 1.5),
         y_range=(-0.1, 1.5),
         plot_width=1200,
-        plot_height=800,
+        plot_height=780,
         background_fill_color="black",
         border_fill_color="black",
         outline_line_color="black",
@@ -158,7 +160,7 @@ def create_chart(chart_data):
     p4.circle(
         x=0,
         y=0,
-        radius=0.01,
+        radius=0.03,
         fill_color='red',
         fill_alpha=0.6,
         line_color=None)
@@ -169,8 +171,41 @@ def create_chart(chart_data):
         fill_color='#FFFFFF',
         fill_alpha=0.6,
         line_color=None)
-    tab4 = Panel(child=p4, title="circle")
+    tab4 = Panel(child=p4, title="NEOs <= 1.5 Lunar Distance")
 
-    tabs = Tabs(tabs=[tab1, tab2, tab3, tab4])
+    p5 = figure(
+        tools=" ",
+        x_range=(-0.5, 0.5),
+        y_range=(-0.1, 0.5),
+        plot_width=1200,
+        plot_height=780,
+        background_fill_color="black",
+        border_fill_color="black",
+        outline_line_color="black",
+        toolbar_location=None,
+        )
+
+    p5.xaxis.axis_label = "Lunar Distance"
+    p5.xgrid.grid_line_color = "#240090"
+    p5.yaxis.axis_label = "Lunar Distance"
+    p5.ygrid.grid_line_color = "#240090"
+
+    p5.circle(
+        x=0,
+        y=0,
+        radius=0.01,
+        fill_color='red',
+        fill_alpha=0.6,
+        line_color=None)
+    p5.circle(
+        x,
+        y,
+        radius=0.01,
+        fill_color='#FFFFFF',
+        fill_alpha=0.6,
+        line_color=None)
+    tab5 = Panel(child=p5, title="NEOs <= 0.5 Lunar Distance")
+
+    tabs = Tabs(tabs=[tab1, tab2, tab3, tab4, tab5])
 
     save(tabs)
