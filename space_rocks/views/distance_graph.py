@@ -42,7 +42,7 @@ def create_chart(chart_data):
     p1 = figure(
         tools=" ",
         x_range=(-14.5, 14.5),
-        y_range=(-0.5, 14.4),
+        y_range=(-0.5, 14.5),
         plot_width=1200,
         plot_height=800,
         background_fill_color="black",
@@ -75,7 +75,7 @@ def create_chart(chart_data):
     p2 = figure(
         tools=" ",
         x_range=(-5.5, 5.5),
-        y_range=(-0.5, 5.4),
+        y_range=(-0.5, 5.5),
         plot_width=1200,
         plot_height=800,
         background_fill_color="black",
@@ -108,7 +108,7 @@ def create_chart(chart_data):
     p3 = figure(
         tools=" ",
         x_range=(-2.5, 2.5),
-        y_range=(-0.5, 2.4),
+        y_range=(-0.5, 2.5),
         plot_width=1200,
         plot_height=800,
         background_fill_color="black",
@@ -138,6 +138,39 @@ def create_chart(chart_data):
         line_color=None)
     tab3 = Panel(child=p3, title="circle")
 
-    tabs = Tabs(tabs=[tab1, tab2, tab3])
+    p4 = figure(
+        tools=" ",
+        x_range=(-1.5, 1.5),
+        y_range=(-0.1, 1.5),
+        plot_width=1200,
+        plot_height=800,
+        background_fill_color="black",
+        border_fill_color="black",
+        outline_line_color="black",
+        toolbar_location=None,
+        )
+
+    p4.xaxis.axis_label = "Lunar Distance"
+    p4.xgrid.grid_line_color = "#240090"
+    p4.yaxis.axis_label = "Lunar Distance"
+    p4.ygrid.grid_line_color = "#240090"
+
+    p4.circle(
+        x=0,
+        y=0,
+        radius=0.01,
+        fill_color='red',
+        fill_alpha=0.6,
+        line_color=None)
+    p4.circle(
+        x,
+        y,
+        radius=0.03,
+        fill_color='#FFFFFF',
+        fill_alpha=0.6,
+        line_color=None)
+    tab4 = Panel(child=p4, title="circle")
+
+    tabs = Tabs(tabs=[tab1, tab2, tab3, tab4])
 
     save(tabs)
