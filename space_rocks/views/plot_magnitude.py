@@ -9,16 +9,28 @@ from space_rocks.CustomExceptions.custom_exceptions import UnknownAxisException
 def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
     """Create Bokeh Scatter Plot."""
     
+    try:
+        if len(abs_mag) > 0 and len(velocity) > 0 and len(neo_names) > 0:
+            print("do graph")
+        else:
+            raise UnknownAxisException
+    except TypeError:
+        raise UnknownAxisException
+
+    
     """Redundant checks in case API provides incomplete info."""
+    '''
     if len(abs_mag) != len(velocity):
         raise UnknownAxisException
 
     if abs_mag is None and velocity is None:
         abs_mag = []
         velocity = []
+        '''
 
 
     """Create absolute file path for embedded html graph."""
+    '''
     here = os.path.abspath(__file__)
     graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)),"static/abs_magnitude.html")
 
@@ -69,7 +81,7 @@ def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
     p.circle('x', 'y', size=20, source=source)
 
     save(p)
-
+    '''
 
 if __name__ == '__main__':
     mag = [1, 2, 3, 4, 5]
