@@ -1,5 +1,5 @@
+"""Tabel models for our N.E.O database."""
 from sqlalchemy import (
-    # Bool,
     Column,
     Float,
     Integer,
@@ -14,6 +14,7 @@ class Size(Base):
 
     __tablename__ = 'sizedata'
     id = Column(Integer, primary_key=True)
+    date = Column(Unicode)
     neo_id = Column(Unicode)
     name = Column(Unicode)
     url = Column(Unicode)
@@ -28,6 +29,7 @@ class Distance(Base):
 
     __tablename__ = 'distancedata'
     id = Column(Integer, primary_key=True)
+    date = Column(Unicode)
     neo_id = Column(Unicode)
     name = Column(Unicode)
     url = Column(Unicode)
@@ -42,6 +44,7 @@ class AbsoluteMag(Base):
 
     __tablename__ = 'absmagdata'
     id = Column(Integer, primary_key=True)
+    date = Column(Unicode)
     neo_id = Column(Unicode)
     name = Column(Unicode)
     url = Column(Unicode)
@@ -56,6 +59,7 @@ class Orbit(Base):
 
     __tablename__ = 'orbitdata'
     id = Column(Integer, primary_key=True)
+    date = Column(Unicode)
     neo_id = Column(Unicode)
     name = Column(Unicode)
     url = Column(Unicode)
