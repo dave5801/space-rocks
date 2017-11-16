@@ -2,12 +2,6 @@
 
 {% block content %}
 <p>Number of Asteroids {{asteroids|length}}</p>
-{% for roid in asteroids %}
-<h2><a href="{{ roid.url }}" target="_blank">{{roid.name}}</a></h2>
-<h3>{{roid.neo_id}}</h3>
-<p>Size(kilometers): {{ roid.kilometers }}</p>
-<p>Size(meters): {{ roid.meters }}</p>
-<p>Size(miles): {{ roid.miles }}</p>
-<p>Size(feet): {{ roid.feet }}</p>
-{% endfor %}
+{{ div|safe }}
+{{ script|safe }}
 {% endblock %}
