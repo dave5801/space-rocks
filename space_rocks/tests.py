@@ -151,7 +151,7 @@ def test_abs_magnitude_graph_missing_velocity_returns_exception():
     test_neo_names = ["ceres", "phobos", "deimos", "asteroid x", "it was earth all along!!"]
 
     with pytest.raises(UnknownAxisException):
-        graph_abs_magnitude(test_mag, [],test_neo_names)
+        graph_abs_magnitude(test_mag, [], test_neo_names)
 
 
 def test_abs_magnitude_graph_missing_neo_names_returns_exception():
