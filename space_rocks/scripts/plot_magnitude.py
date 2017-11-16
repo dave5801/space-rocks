@@ -1,5 +1,4 @@
 """Class for Scatter Plot -to be integrated with API calls."""
-
 from bokeh.models import ColumnDataSource, OpenURL, TapTool
 from bokeh.plotting import figure, output_file, show
 
