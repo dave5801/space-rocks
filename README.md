@@ -17,6 +17,12 @@ understanding of Near Earth Objects, as well as past or potential impacts.
 - `cd` into the level of `setup.py`
 - `pip install` this package into your virtual environment.
 
+## Testing:
+- 'pip install tox' this installs tox, a framework for standardized testing in python.
+- 'pip install pytest' this installs testing framework used to test our platform.
+- 'pytest' this runs tests.
+
+
 ## Authors
 
 - Adrienne Karnoski
