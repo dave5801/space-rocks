@@ -30,8 +30,8 @@ def size_chart(asteroid_list):
     p = figure(
         title='Asteroid Size Compared to Elephants',
         tools=['pan', 'wheel_zoom'],
-        plot_width=1000,
-        plot_height=1000,
+        plot_width=1125,
+        plot_height=800,
         background_fill_color='black',
         background_fill_alpha=0.9,
         border_fill_color='black',
