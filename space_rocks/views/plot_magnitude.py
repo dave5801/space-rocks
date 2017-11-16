@@ -1,4 +1,8 @@
-"""Class for Scatter Plot -to be integrated with API calls."""
+"""Function to create a bokeh scatter plot.
+
+    It takes in the absolute magnitude, relative velocity and N.E.O's name and returns
+    a scatter plot charting them.
+"""
 
 import os
 from bokeh.plotting import figure, output_file, save, ColumnDataSource
