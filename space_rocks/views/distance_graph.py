@@ -55,11 +55,12 @@ def create_chart(chart_data):
     p1.xgrid.grid_line_color = "#240090"
     p1.yaxis.axis_label = "Lunar Distance"
     p1.ygrid.grid_line_color = "#240090"
-
+    p1.legend.background_fill_color = "black"
+    p1.legend.label_text_color = "white"
     p1.circle(
         x=0,
         y=0,
-        legend='yes',
+        legend='Earth',
         radius=0.145,
         fill_color='red',
         fill_alpha=0.6,
@@ -68,7 +69,7 @@ def create_chart(chart_data):
         x,
         y,
         radius=0.08,
-        legend='no',
+        legend='Not Earth',
         fill_color='#FFFFFF',
         fill_alpha=0.6,
         line_color=None)
