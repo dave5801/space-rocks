@@ -19,12 +19,16 @@ def about_view(request):
     return {}
 
 
-@view_config(route_name='size', renderer='../templates/size_view.jinja2')
+@view_config(route_name='size', renderer='space_rocks:templates/size_view.jinja2')
 def size_view(request):
     """Render the view page for the size view."""
-    asteroids = request.dbsession.query(Size).all()
+    from space_rocks.views.size_chart import size_chart
+    asteroids = request.dbsession.query(Size).order_by(Size.feet.desc()).all()
+    script, div = size_chart(asteroids)
     return {
-        "asteroids": asteroids
+        "asteroids": asteroids,
+        "script": script,
+        "div": div
     }
 
 
@@ -45,6 +49,22 @@ def distance_view(request):
 @view_config(route_name='absmag', renderer='../templates/absmag_view.jinja2')
 def absolute_magnitude_view(request):
     """Render the view for absolute mignitude."""
+    from space_rocks.views.plot_magnitude import graph_abs_magnitude
+
+    plot_data = request.dbsession.query(AbsoluteMag).all()
+
+    mag_axis = []
+    vel_axis = []
+    neo_names = []
+
+    for i in range(len(plot_data)):
+        mag_axis.append(plot_data[i].absolutemag)
+        vel_axis.append(plot_data[i].velocity_kps)
+        #print(plot_data[i].neo_id)
+        neo_names.append(plot_data[i].neo_id)
+
+    graph_abs_magnitude(mag_axis, vel_axis, neo_names)
+
     return {}
 
 

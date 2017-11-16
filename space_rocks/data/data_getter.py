@@ -9,7 +9,7 @@ only one level.
 # import requests
 # SPACE_DATA = []
 
-# for x in range(1):
+# for x in range(877):
 #     r = requests.get('https://api.nasa.gov/neo/rest/v1/neo/browse?page=' + str(x) + '&size=20&api_key=GYv6ouAkoIpO6h4i1th4XWewFNX2zVSUZ9ZBfS4d')
 #     data = r.json()
 #     data = data['near_earth_objects']
@@ -38,6 +38,7 @@ only one level.
 #                 data_velocity_kph = key['relative_velocity']['kilometers_per_hour']
 #                 data_velocity_mph = key['relative_velocity']['miles_per_hour']
 #                 data_orbiting_body = key['orbiting_body']
+#                 data_approach_date = key['close_approach_date']
 #             data_orbit_period = data[i]['orbital_data']['orbital_period']
 #             data_perihelion_dist = data[i]['orbital_data']['perihelion_distance']
 #             data_aphelion_dist = data[i]['orbital_data']['aphelion_distance']
@@ -65,8 +66,9 @@ only one level.
 #                 'perihelion_dist': data_perihelion_dist,
 #                 'aphelion_dist': data_aphelion_dist,
 #                 'orbit_eccentricity': data_orbit_eccentricity,
+#                 'perihelion_time': data_perihelion_time,
 #                 'orbit_body': data_orbiting_body,
-#                 'perihelion_time': data_perihelion_time
+#                 'approach_date': data_approach_date
 #             }
 #             SPACE_DATA.append(one_asteroid)
 #     except KeyError:
