@@ -1,26 +1,14 @@
 {% extends "layout.jinja2" %}
 
 {% block content %}
-
-    <marquee direction="left">
-
-    <h1 class="title_text">
+    <marquee direction="left"><h1 class="title_text">
         Earth's is moving at approximately 30 km/s
         About as fast as a speeding Bullet.
         Absolute Magnitude is brightness at a standard distance of 10 parsecs -- (aproximately the Kessel Run).
         The lower the Absolute Magnitude. The brighter the object.
-
         Relative Velocity is the speed and direction of a given body as it appears from another frame of reference.
-
-        Mars has a velocity nearly 6 km/s relative to Earth has an absolute magnitude -1.52.
-
-        A 747 flies at 885 km/hour or 0.245833 km/s.
-
-    </h1>
+        Mars has a velocity nearly 6 km/s relative to Earth has an absolute magnitude -1.52.A 747 flies at 885 km/hour or 0.245833 km/s.</h1>
     </marquee>
-    
     {% include '../static/graphs/abs_magnitude.html' %}
- 
-
-{% endblock %}
+ {% endblock %}
 
