@@ -1,18 +1,57 @@
 {% extends "layout.jinja2" %}
 
 {% block content %}
+<main class="distance_page">
+    <h1>NEOs Miss Distance</h1>
+    <div class="distance_container">
+    <div class="earth"></div>
+    <div class="line"></div>
+    <div class="moon"></div>
+    </div>
+    <div class="description_container">
+        <ul class="earth_list">
+            <li>Earth</li>
+        </ul>
+        <ul class="description_list">
+            <li>1 Lunar Distance</li>
+            <li>0.00257 Astronomical Units</li>
+            <li>384,400 Kilometers</li>
+            <li>238,855 Miles</li>
+        </ul>
+        <ul class="moon_list">
+            <li>Moon</li>
+        </ul>
+    </div>
+    <div class="distance_description">
+        <h2>Distance Data</h2>
+        <p>The following graph displays the miss distance of Near-Earth Objects (NEOs),
+        measured from the center of Earth to the center of the NEO.</p>
+        <p>Distance from Earth to center of asteroid glyphs are to scale,
+        with asteroid size increased for visability.</p>
+        <p>Scale of Earth and the Moon are described in legend</p> 
+    </div>
 {% include '../static/distance.html' %}
-{{ asteroids|length}}
-<ul>
+<table class="distance_table">
+    <tr>
+        <th>Neo ID</th>
+        <th>Name</th>
+        <th>AU</th>
+        <th>L</th>
+        <th>km</th>
+        <th>miles</th>
+        <th>Reference</th>
+    </tr>
     {% for neo in asteroids %}
-    <li>{{neo.id}}</li>
-    <li>neo id: {{neo.neo_id}}</li>
-    <li>name: {{neo.name}}</li>
-    <li>url: {{neo.url}}</li>
-    <li>astronomical: {{neo.astronomical}}</li>
-    <li>lunar: {{neo.lunar}}</li>
-    <li>kilomaters: {{neo.kilometers}}</li>
-    <li>miles: {{neo.miles}}</li>
+    <tr>
+        <td>{{neo.neo_id}}</td>
+        <td>{{neo.name}}</td>
+        <td>{{neo.astronomical}}</td>
+        <td>{{neo.lunar}}</td>
+        <td>{{neo.kilometers}}</td>
+        <td>{{neo.miles}}</td>
+        <td><a href="{{neo.url}}">Site</a></td>
+    </tr>
     {% endfor %}
-</ul>
+</table>
+</main>
 {% endblock %}
