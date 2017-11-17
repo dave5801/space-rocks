@@ -214,3 +214,59 @@ def test_abs_magnitude_graph_exists_valid_arguments():
 
     assert os.path.isfile("space_rocks/static/graphs/abs_magnitude.html")
     graph_abs_magnitude(test_mag, test_vel, test_neo_names)
+
+
+# def test_distance_graph_returns_dict(dummy_request):
+#     """Test size distance creation."""
+#     from space_rocks.views.default import distance_view
+#     response = distance_view(dummy_request)
+#     from space_rocks.views.distance_graph import gather_data
+#     other = gather_data(response)
+
+
+def test_importing_of_data_view():
+    """Test the view is imported."""
+    from space_rocks.views.distance_graph import gather_data
+    assert gather_data
+
+
+def test_importing_of_size_chart_view():
+    """Test the view is imported."""
+    from space_rocks.views.size_chart import size_chart
+    assert size_chart
+
+
+def test_importing_of_abs_mag_view():
+    """Test the view is imported."""
+    from space_rocks.views.plot_magnitude import graph_abs_magnitude
+    assert graph_abs_magnitude
+
+
+def test_importing_of_size_model():
+    """Test the view is imported."""
+    from space_rocks.models.spacemodel import Size
+    assert Size
+
+
+def test_importing_of_distance_model():
+    """Test the view is imported."""
+    from space_rocks.models.spacemodel import Distance
+    assert Distance
+
+
+def test_importing_of_orbit_model():
+    """Test the view is imported."""
+    from space_rocks.models.spacemodel import Orbit
+    assert Orbit
+
+
+def test_importing_of_abs_mag_model():
+    """Test the view is imported."""
+    from space_rocks.models.spacemodel import AbsoluteMag
+    assert AbsoluteMag
+
+
+def test_importing_of_data_getter():
+    """Test the data_getter is imported."""
+    from space_rocks.data import data_getter
+    assert data_getter
