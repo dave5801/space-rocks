@@ -157,7 +157,7 @@ tbody {
 .t_container {
   margin: 50px 0px;
   padding: 10px;
-  padding-left: 21%;
+  padding-left: 22%;
 }
 
 .d_button {
@@ -171,6 +171,7 @@ tbody {
   width: 100%;
   display: block;
   clear: both;
+  padding-left: 12%;
 }
 
 .d_button a {
@@ -188,7 +189,7 @@ tbody {
 }
 
 .distance_page {
-  background: black;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .distance_container {
@@ -201,9 +202,9 @@ tbody {
 }
 
 .d_h2 {
-  text-align: center;
-  margin-top: 250px;
+  margin-top: 4%;
   display: inline-block;
+  margin-left: 44%;
 }
 
 .earth {
