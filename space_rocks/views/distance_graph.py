@@ -36,8 +36,196 @@ def gather_data(asteroids):
     for neo in neo_dict['lunar_list'][num:]:
         a = random.uniform(0.1, neo)
         b = neo - a
-        neo_dict['x_numbers'].append(-b)
-        neo_dict['y_numbers'].append(a)
+
+        x_numbers.append(-b)
+        y_numbers.append(a)
+        x = x_numbers
+        y = y_numbers
+        chart_data = [N, x, y]
+    create_chart(chart_data)
+
+
+def create_chart(chart_data):
+    N = chart_data[0]
+    x = chart_data[1]
+    y = chart_data[2]
+
+    here = os.path.abspath(__file__)
+    graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)),"static/distance.html")
+
+    output_file(graph_file_path)
+
+    p1 = figure(
+        tools=" ",
+        x_range=(-14.5, 14.5),
+        y_range=(-0.5, 14.5),
+        plot_width=1200,
+        plot_height=780,
+        background_fill_color="black",
+        border_fill_color="black",
+        outline_line_color="black",
+        toolbar_location=None,
+        )
+
+    p1.xaxis.axis_label = "Lunar Distance"
+    p1.xgrid.grid_line_color = "#240090"
+    p1.yaxis.axis_label = "Lunar Distance"
+    p1.ygrid.grid_line_color = "#240090"
+
+    p1.circle(
+        x=0,
+        y=0,
+        legend='yes',
+        radius=0.145,
+        fill_color='red',
+        fill_alpha=0.6,
+        line_color=None)
+    p1.circle(
+        x,
+        y,
+        radius=0.08,
+        legend='no',
+        fill_color='#FFFFFF',
+        fill_alpha=0.6,
+        line_color=None)
+    tab1 = Panel(child=p1, title="NEOs <= 14.5 Lunar Distance")
+
+    p2 = figure(
+        tools=" ",
+        x_range=(-5.5, 5.5),
+        y_range=(-0.5, 5.5),
+        plot_width=1200,
+        plot_height=780,
+        background_fill_color="black",
+        border_fill_color="black",
+        outline_line_color="black",
+        toolbar_location=None,
+        )
+
+    p2.xaxis.axis_label = "Lunar Distance"
+    p2.xgrid.grid_line_color = "#240090"
+    p2.yaxis.axis_label = "Lunar Distance"
+    p2.ygrid.grid_line_color = "#240090"
+
+    p2.circle(
+        x=0,
+        y=0,
+        radius=0.09,
+        fill_color='red',
+        fill_alpha=0.6,
+        line_color=None)
+    p2.circle(
+        x,
+        y,
+        radius=0.06,
+        fill_color='#FFFFFF',
+        fill_alpha=0.7,
+        line_color=None)
+    tab2 = Panel(child=p2, title="NEOs <= 5.5 Lunar Distance")
+
+    p3 = figure(
+        tools=" ",
+        x_range=(-2.5, 2.5),
+        y_range=(-0.2, 2.5),
+        plot_width=1200,
+        plot_height=800,
+        background_fill_color="black",
+        border_fill_color="black",
+        outline_line_color="black",
+        toolbar_location=None,
+        )
+
+    p3.xaxis.axis_label = "Lunar Distance"
+    p3.xgrid.grid_line_color = "#240090"
+    p3.yaxis.axis_label = "Lunar Distance"
+    p3.ygrid.grid_line_color = "#240090"
+
+    p3.circle(
+        x=0,
+        y=0,
+        radius=0.05,
+        fill_color='red',
+        fill_alpha=0.6,
+        line_color=None)
+    p3.circle(
+        x,
+        y,
+        radius=0.03,
+        fill_color='#FFFFFF',
+        fill_alpha=0.6,
+        line_color=None)
+    tab3 = Panel(child=p3, title="NEOs <= 2.5 Lunar Distance")
+
+    p4 = figure(
+        tools=" ",
+        x_range=(-1.5, 1.5),
+        y_range=(-0.1, 1.5),
+        plot_width=1200,
+        plot_height=780,
+        background_fill_color="black",
+        border_fill_color="black",
+        outline_line_color="black",
+        toolbar_location=None,
+        )
+
+    p4.xaxis.axis_label = "Lunar Distance"
+    p4.xgrid.grid_line_color = "#240090"
+    p4.yaxis.axis_label = "Lunar Distance"
+    p4.ygrid.grid_line_color = "#240090"
+
+    p4.circle(
+        x=0,
+        y=0,
+        radius=0.03,
+        fill_color='red',
+        fill_alpha=0.6,
+        line_color=None)
+    p4.circle(
+        x,
+        y,
+        radius=0.03,
+        fill_color='#FFFFFF',
+        fill_alpha=0.6,
+        line_color=None)
+    tab4 = Panel(child=p4, title="NEOs <= 1.5 Lunar Distance")
+
+    p5 = figure(
+        tools=" ",
+        x_range=(-0.5, 0.5),
+        y_range=(-0.1, 0.5),
+        plot_width=1200,
+        plot_height=780,
+        background_fill_color="black",
+        border_fill_color="black",
+        outline_line_color="black",
+        toolbar_location=None,
+        )
+
+    p5.xaxis.axis_label = "Lunar Distance"
+    p5.xgrid.grid_line_color = "#240090"
+    p5.yaxis.axis_label = "Lunar Distance"
+    p5.ygrid.grid_line_color = "#240090"
+
+    p5.circle(
+        x=0,
+        y=0,
+        radius=0.01,
+        fill_color='red',
+        fill_alpha=0.6,
+        line_color=None)
+    p5.circle(
+        x,
+        y,
+        radius=0.01,
+        fill_color='#FFFFFF',
+        fill_alpha=0.6,
+        line_color=None)
+    tab5 = Panel(child=p5, title="NEOs <= 0.5 Lunar Distance")
+
+    tabs = Tabs(tabs=[tab1, tab2, tab3, tab4, tab5])
+
+    neo_dict['x_numbers'].append(-b)
+    neo_dict['y_numbers'].append(a)
 
     create_chart(neo_dict)
 
@@ -52,6 +240,8 @@ def create_dictionaries():
             'y_min': -0.5,
             'y_max': 14.5,
             'earth_rad': 0.145,
+            'earth_dif': '1350%',
+            'moon_dif': '3122%',
             'moon_rad': 0.145,
             'neo_rad': 0.08,
         }
@@ -63,6 +253,8 @@ def create_dictionaries():
             'y_min': -0.5,
             'y_max': 5.5,
             'earth_rad': 0.11,
+            'earth_dif': '1000%',
+            'moon_dif': '2344%',
             'moon_rad': 0.11,
             'neo_rad': 0.06,
         }
@@ -74,6 +266,8 @@ def create_dictionaries():
             'y_min': -0.2,
             'y_max': 2.5,
             'earth_rad': 0.05,
+            'earth_dif': '400%',
+            'moon_dif': '1011%',
             'moon_rad': 0.05,
             'neo_rad': 0.03,
         }
@@ -85,6 +279,8 @@ def create_dictionaries():
             'y_min': -0.1,
             'y_max': 1.5,
             'earth_rad': 0.03,
+            'earth_dif': '200%',
+            'moon_dif': '566%',
             'moon_rad': 0.03,
             'neo_rad': 0.03,
         }
@@ -96,6 +292,8 @@ def create_dictionaries():
             'y_min': -0.1,
             'y_max': 0.5,
             'earth_rad': 0.01,
+            'earth_dif': 'to scale',
+            'moon_dif': 'not shown',
             'moon_rad': 0.01,
             'neo_rad': 0.01,
         }
@@ -131,7 +329,7 @@ def create_chart(neo_dict):
         d['p'].circle(
             x=0,
             y=0,
-            legend='Earth',
+            legend='Earth (size increase: {})'.format(d['earth_dif']),
             radius=d['earth_rad'],
             fill_color='green',
             fill_alpha=0.6,
@@ -139,7 +337,7 @@ def create_chart(neo_dict):
         d['p'].circle(
             x=0,
             y=1,
-            legend='Moon',
+            legend='Moon (size increase: {})'.format(d['moon_dif']),
             radius=d['moon_rad'],
             fill_color='blue',
             fill_alpha=0.6,
@@ -148,7 +346,6 @@ def create_chart(neo_dict):
             neo_dict['x_numbers'],
             neo_dict['y_numbers'],
             radius=d['neo_rad'],
-            legend='Asteroids',
             fill_color='#FFFFFF',
             fill_alpha=0.6,
             line_color=None)
@@ -160,5 +357,6 @@ def create_chart(neo_dict):
     output_file(graph_path)
 
     tabs = Tabs(tabs=display)
+
 
     save(tabs)
