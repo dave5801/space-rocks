@@ -99,24 +99,20 @@ def test_distance_view_returns_dict(dummy_request):
     response = distance_view(dummy_request)
     assert isinstance(response, dict)
 
-'''
-def test_about_view_returns_empty_dict(dummy_request):
-    """Test about view creation."""
-    from space_rocks.views.default import about_view
-    dummy_request.method = "POST"
-    response = about_view(dummy_request)
-    assert response == {}
-'''
 
-'''
-def test_size_view_returns_with_size_graph_data(dummy_request):
-    """."""
-    from space_rocks.views.default import size_view
+def test_absolute_magnitude_view_returns_dict(dummy_request):
+    """Test absolute magnitude view creation."""
+    from space_rocks.views.default import distance_view
+    response = distance_view(dummy_request)
+    assert isinstance(response, dict)
 
-    dummy_request.method = "POST"
-    response = size_view(dummy_request)
-    assert response == {}
-'''
+
+def test_orbit_view_returns_dict(dummy_request):
+    """Test orbit view creation."""
+    from space_rocks.views.default import orbit_view
+    response = orbit_view(dummy_request)
+    assert isinstance(response, dict)
+
 
 def test_abs_magnitude_graph_no_arguments_returns_exception():
     """Test if absolute magnitude graph's raises exception, no args."""
