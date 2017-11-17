@@ -70,9 +70,12 @@ def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
                        border_fill_color='black',
                        border_fill_alpha=0.8,
                        toolbar_location=None,
+                       responsive=True
                        )
 
             p.circle('x', 'y', size=10, source=source)
+            p.ygrid.grid_line_color = "#333333"
+            p.xgrid.grid_line_color = "#333333"
 
             save(p)
         else:
