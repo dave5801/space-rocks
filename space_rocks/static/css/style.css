@@ -21,6 +21,7 @@ img {
     filter: alpha(opacity=70);
     margin-right: 10px;
     border-radius: 23px;
+    margin-bottom: 0.5%;
 
 }
 .font1{
@@ -100,13 +101,13 @@ Video on page*/
 }
 
 /*Grapg*/
-.bk-root {
+/*.bk-root {
     font-family: 'Orbitron', sans-serif;
     font-size: 10pt;
     position: relative;
     width: 100%;
     height: 100%;
-    margin: auto;
+    margin: auto;*/
     /*padding-left: 10%;*/
 }
 
@@ -168,6 +169,7 @@ tbody {
   border-radius: 5px;
   color: white;
   text-decoration: none;
+  display: inline-block;
 }
 
 .d_button {

@@ -4,7 +4,7 @@ The size is compared to the number of elephants.
 """
 import os
 from bokeh.plotting import figure, save, output_file
-from bokeh.palettes import YlGnBu3
+from bokeh.palettes import YlOrRd3
 from random import randint
 
 HERE = os.path.abspath(__file__)
@@ -39,11 +39,12 @@ def size_chart(asteroid_list):
         background_fill_alpha=0.7,
         border_fill_color='black',
         border_fill_alpha=0.7,
-        y_range=(0, 300)
+        y_range=(0, 300),
+        responsive=True
     )
 
     for item, size, name, color in zip([y_axis_2018, y_axis_2017, y_axis_2016], [size_2018, size_2017, size_2016],
-                                       ['2018', '2017', '2016'], YlGnBu3):
+                                       ['2018', '2017', '2016'], YlOrRd3):
         p.scatter(
             x=x_axis,
             y=item,
