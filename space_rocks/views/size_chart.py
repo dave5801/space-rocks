@@ -36,9 +36,9 @@ def size_chart(asteroid_list):
         plot_width=900,
         plot_height=800,
         background_fill_color='black',
-        background_fill_alpha=0.8,
+        background_fill_alpha=0.7,
         border_fill_color='black',
-        border_fill_alpha=0.8,
+        border_fill_alpha=0.7,
         y_range=(0, 300)
     )
 
@@ -63,7 +63,7 @@ def size_chart(asteroid_list):
     p.legend.location = "top_left"
     p.legend.click_policy = "hide"
     p.legend.background_fill_color = "black"
-    p.legend.background_fill_alpha = 0.8
+    p.legend.background_fill_alpha = 0.7
 
     p.toolbar_location = None
     p.toolbar.logo = None
