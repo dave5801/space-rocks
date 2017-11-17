@@ -160,8 +160,9 @@ tbody {
   padding-left: 22%;
 }
 
-.t_container a {
+.top_button {
   margin: 10px;
+  margin-top: 20px;
   padding: 5px;
   border: white solid 2px;
   border-radius: 5px;
