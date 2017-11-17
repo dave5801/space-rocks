@@ -80,6 +80,12 @@ def testapp():
     from webtest import TestApp
     return TestApp(app)
 
+def test_layout_root(testapp):
+    """Test get response from layout view."""
+    response = testapp.get('/', status=200)
+    html = response.html
+    assert 'SpaceRocks' in html.find("title").text
+
 
 def test_home_view_returns_dict(dummy_request):
     """Test home view creation."""
@@ -103,6 +109,7 @@ def test_size_view_returns_dict(dummy_request):
 
 
 '''
+
 def test_distance_view_returns_dict(dummy_request):
     """Test size view creation."""
     from space_rocks.views.default import distance_view
