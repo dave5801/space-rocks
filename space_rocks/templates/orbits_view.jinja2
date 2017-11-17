@@ -1,13 +1,9 @@
 {% extends "layout.jinja2" %}
 
 {% block content %}
-<marquee direction="left"><h1 class="moving_text">
-    An asteroid's orbit is computed by finding the elliptical path about the sun 
-    that best fits the available observations of the object. 
-    That is, the object's computed path about the sun is adjusted until the predictions
-    of where the asteroid should have appeared in the sky at several observed times match 
-    the positions where the object was actually observed to be at those same times. 
-    As more and more observations are used to further improve an object's orbit,</h1></marquee>
+<marquee direction="left"><h1 class="title_text">
+    An asteroid's orbit is computed by approximating its elliptical path about the Sun. 
+    Multiple observations are made to best predict its position.</h1></marquee>
     {% for neo in Orbits %}
     <div class="clearfix">
     <div class="card-body">
