@@ -38,7 +38,6 @@ def create_chart(chart_data):
     x = chart_data[1]
     y = chart_data[2]
 
-    #output_file('space_rocks/static/distance.html')
     here = os.path.abspath(__file__)
     graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)),"static/distance.html")
 

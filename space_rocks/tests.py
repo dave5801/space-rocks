@@ -72,6 +72,15 @@ def dummy_request(db_session):
     return testing.DummyRequest(dbsession=db_session)
 
 
+@pytest.fixture()
+def testapp():
+    """Test fixture for creating an app"""
+    from space_rocks import main
+    app = main({})
+    from webtest import TestApp
+    return TestApp(app)
+
+
 def test_home_view_returns_dict(dummy_request):
     """Test home view creation."""
     from space_rocks.views.default import home_view
