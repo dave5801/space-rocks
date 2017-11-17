@@ -200,6 +200,10 @@ tbody {
   font-size: 14px;
 }
 
+.bk-bs-nav-tabs li:hover {
+  color: #09599e;
+}
+
 .distance_page {
   background: rgba(0, 0, 0, 0.8);
 }
