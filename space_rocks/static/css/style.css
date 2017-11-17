@@ -130,6 +130,11 @@ Video on page*/
 .distance_table {
   width: 100%;
   margin-left: 20px;
+  color: white;
+}
+
+.distance_table a {
+  color: white;
 }
 
 .distance_table th, .distance_table td {
@@ -152,6 +157,7 @@ tbody {
 .t_container {
   margin: 50px 0px;
   padding: 10px;
+  padding-left: 21%;
 }
 
 .d_button {
@@ -172,6 +178,8 @@ tbody {
   padding: 5px;
   border: white solid 2px;
   border-radius: 5px;
+  color: white;
+  text-decoration: none;
 }
 
 .bk-bs-nav-tabs li {
@@ -195,6 +203,7 @@ tbody {
 .d_h2 {
   text-align: center;
   margin-top: 250px;
+  display: inline-block;
 }
 
 .earth {
