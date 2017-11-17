@@ -46,6 +46,9 @@ padding:5px;
     color: #09599e;
 
 }
+.moving_text{
+  color:white;
+}
 
 /*Nav bar*/
 .navbar-default .navbar-nav>li>a {
@@ -129,4 +132,12 @@ Video on page*/
 .vid-info .acronym { display: none; }
 }
 
-
+/*Grapg*/
+.bk-root {
+    font-family: 'Lato', sans-serif;
+    font-size: 10pt;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-left: 10%;
+}
