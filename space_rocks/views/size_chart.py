@@ -19,7 +19,7 @@ def size_chart(asteroid_list):
     size_2016 = []
     size_2017 = []
     size_2018 = []
-    for item in asteroid_list:
+    for item in asteroid_list:  # pragma: no cover
         if '2016' in item.date:
             y_axis_2016.append(float('{0:.4f}'.format(item.feet)))
             size_2016.append(float('{0:.2f}'.format(item.feet / 13)))
