@@ -132,6 +132,7 @@ Video on page*/
 .vid-info .acronym { display: none; }
 }
 
+<<<<<<< HEAD
 /*Grapg*/
 .bk-root {
     font-family: 'Lato', sans-serif;
@@ -141,3 +142,111 @@ Video on page*/
     height: 100%;
     padding-left: 10%;
 }
+=======
+
+/*Scorelling*/
+
+nav {
+    margin: 0 auto;
+    margin-top: 3em;
+    width: auto;
+}
+
+#wrapper {
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+}
+nav ul li:hover {
+  background-color: black;
+}
+
+li {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 1px;
+  margin-right:auto;
+  margin-left:auto;
+  border-radius: 10px;
+  text-align: center;
+
+ 
+}
+
+/*Distance Page Stylings*/
+
+.distance_table {
+  width: 100%;
+}
+
+.bk-bs-nav-tabs li {
+  width: 150px;
+  font-size: 14px;
+}
+
+.distance_page {
+  background: black;
+}
+
+.distance_container {
+  content: "";
+  clear: both;
+  display: table;
+  width: 650px;
+  height: 50px;
+  margin: auto;
+}
+
+.earth {
+  float: left;
+  height: 50px;
+  width: 50px;
+  background: linear-gradient(to bottom left, #339933 0%, #003300 100%);
+  border-radius: 50%;
+}
+
+.moon {
+  float: right;
+  height: 30px;
+  width: 30px;
+  margin-top: 15px;
+  background: linear-gradient(to bottom left, #33ccff 0%, #003366 100%);
+  border-radius: 50%;
+}
+
+.line {
+  float: left;
+  height: 5px;
+  width: 520px;
+  margin-top: 25px;
+  margin-left: 25px;
+  background-color: white;
+}
+
+.description_container {
+  content: "";
+  clear: both;
+  display: table;
+  width: 700px;
+  margin: auto;
+}
+
+.earth_list {
+  float: left;
+  width: 100px;
+  margin-left: -20px;
+  text-align: left;
+}
+
+.moon_list {
+  float: right;
+  width: 120px;
+}
+
+.description_list {
+  float: left;
+  width: 450px;
+  margin-left: 30px;
+}
+
+>>>>>>> master
