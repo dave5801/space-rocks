@@ -128,8 +128,9 @@ def create_chart(neo_dict):
             plot_width=1400,
             plot_height=740,
             background_fill_color="black",
-            background_fill_alpha=0.7,
+            background_fill_alpha=0.4,
             border_fill_color="black",
+            border_fill_alpha=0.4,
             outline_line_color="black",
             toolbar_location=None,
             )
