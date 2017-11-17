@@ -172,4 +172,4 @@ def test_abs_magnitude_graph_exists_valid_arguments():
     test_neo_names = ["ceres", "phobos", "deimos", "asteroid x", "it was earth all along!!"]
 
     graph_abs_magnitude(test_mag, test_vel, test_neo_names)
-    assert os.path.isfile("static/graphs/abs_magnitude.html")
+    assert os.path.isfile("space_rocks/static/graphs/abs_magnitude.html")
