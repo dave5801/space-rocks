@@ -101,6 +101,13 @@ def test_about_layout(testapp):
     html = response.html
     assert 'Chaitanya' in html.find("h1").text
 
+
+def test_size_layout(testapp):
+    """Test get response from size view."""
+    response = testapp.get('/size', status=200)
+    html = response.html
+    assert 'Size' in html.find("h1").text
+
 def test_home_view_returns_dict(dummy_request):
     """Test home view creation."""
     from space_rocks.views.default import home_view
