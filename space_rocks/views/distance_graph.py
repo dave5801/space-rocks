@@ -4,6 +4,11 @@ from space_rocks.models.spacemodel import Distance
 from bokeh.models.widgets import Panel, Tabs
 import random
 
+HERE = os.path.abspath(__file__)
+graph_path = os.path.join(
+    os.path.dirname(os.path.dirname(HERE)),
+    "static/graphs/distance.html")
+
 
 def gather_data(asteroids):
     """Take all asteroids an create dictionary for chart."""
@@ -109,8 +114,8 @@ def create_chart(neo_dict):
             tools=" ",
             x_range=(d['x_min'], d['x_max']),
             y_range=(d['y_min'], d['y_max']),
-            plot_width=1200,
-            plot_height=780,
+            plot_width=1100,
+            plot_height=740,
             background_fill_color="black",
             border_fill_color="black",
             outline_line_color="black",
@@ -127,7 +132,7 @@ def create_chart(neo_dict):
             y=0,
             legend='Earth',
             radius=d['earth_rad'],
-            fill_color='red',
+            fill_color='green',
             fill_alpha=0.6,
             line_color=None)
         d['p'].circle(
@@ -148,10 +153,10 @@ def create_chart(neo_dict):
             line_color=None)
         d['tab'] = Panel(
             child=d['p'],
-            title="NEOs <= {} Lunar Distance".format(d['x_max']))
+            title="NEOs <= {}LD".format(d['x_max']))
         display.append(d['tab'])
 
-    output_file('space_rocks/static/distance.html')
+    output_file(graph_path)
 
     tabs = Tabs(tabs=display)
 
