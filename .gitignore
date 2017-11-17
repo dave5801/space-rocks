@@ -104,4 +104,4 @@ ENV/
 .idea/
 
 # misc
-*.html
+#*.html
