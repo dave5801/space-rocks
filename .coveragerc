@@ -13,5 +13,6 @@ omit =
     space_rocks/models/meta.py
     space_rocks/CustomExceptions/custom_exceptions.py
     space_rocks/routes.py
+    space_rocks/scripts/initializedb.py
 [report]
 show_missing = True
