@@ -240,6 +240,8 @@ def create_dictionaries():
             'y_min': -0.5,
             'y_max': 14.5,
             'earth_rad': 0.145,
+            'earth_dif': '1350%',
+            'moon_dif': '3122%',
             'moon_rad': 0.145,
             'neo_rad': 0.08,
         }
@@ -251,6 +253,8 @@ def create_dictionaries():
             'y_min': -0.5,
             'y_max': 5.5,
             'earth_rad': 0.11,
+            'earth_dif': '1000%',
+            'moon_dif': '2344%',
             'moon_rad': 0.11,
             'neo_rad': 0.06,
         }
@@ -262,6 +266,8 @@ def create_dictionaries():
             'y_min': -0.2,
             'y_max': 2.5,
             'earth_rad': 0.05,
+            'earth_dif': '400%',
+            'moon_dif': '1011%',
             'moon_rad': 0.05,
             'neo_rad': 0.03,
         }
@@ -273,6 +279,8 @@ def create_dictionaries():
             'y_min': -0.1,
             'y_max': 1.5,
             'earth_rad': 0.03,
+            'earth_dif': '200%',
+            'moon_dif': '566%',
             'moon_rad': 0.03,
             'neo_rad': 0.03,
         }
@@ -284,6 +292,8 @@ def create_dictionaries():
             'y_min': -0.1,
             'y_max': 0.5,
             'earth_rad': 0.01,
+            'earth_dif': 'to scale',
+            'moon_dif': 'not shown',
             'moon_rad': 0.01,
             'neo_rad': 0.01,
         }
@@ -319,7 +329,7 @@ def create_chart(neo_dict):
         d['p'].circle(
             x=0,
             y=0,
-            legend='Earth',
+            legend='Earth (size increase: {})'.format(d['earth_dif']),
             radius=d['earth_rad'],
             fill_color='green',
             fill_alpha=0.6,
@@ -327,7 +337,7 @@ def create_chart(neo_dict):
         d['p'].circle(
             x=0,
             y=1,
-            legend='Moon',
+            legend='Moon (size increase: {})'.format(d['moon_dif']),
             radius=d['moon_rad'],
             fill_color='blue',
             fill_alpha=0.6,
@@ -336,7 +346,6 @@ def create_chart(neo_dict):
             neo_dict['x_numbers'],
             neo_dict['y_numbers'],
             radius=d['neo_rad'],
-            legend='Asteroids',
             fill_color='#FFFFFF',
             fill_alpha=0.6,
             line_color=None)
