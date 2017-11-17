@@ -6,5 +6,6 @@ omit =
     space_rocks/views/old_plot_magnitude.py
     space_rocks/CustomExceptions/__init__.py
     space_rocks/views/notfound.py
+    space_rocks/models/meta.py
 [report]
 show_missing = True
