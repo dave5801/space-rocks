@@ -63,7 +63,7 @@ TEST_PERIHELION_DISTANCE = [.9894097219129394, .8381172369540927, .9856999549666
 FAKE_FACTORY = Faker()
 
 SIZE_LIST = [Size(
-    id=random.choice(TEST_ID),
+   # id=random.choice(TEST_ID),
     date=random.choice(TEST_DATE),
     neo_id=random.choice(TEST_NEO_ID),
     name=random.choice(TEST_NAME),
@@ -76,7 +76,7 @@ SIZE_LIST = [Size(
 
 
 DISTANCE_LIST = [Distance(
-    id=random.choice(TEST_ID),
+    #id=random.choice(TEST_ID),
     date=random.choice(TEST_DATE),
     neo_id=random.choice(TEST_NEO_ID),
     name=random.choice(TEST_NAME),
@@ -89,7 +89,7 @@ DISTANCE_LIST = [Distance(
 
 
 ABSOLUTE_MAG_LIST = [AbsoluteMag(
-    id=random.choice(TEST_ID),
+   # id=random.choice(TEST_ID),
     date=random.choice(TEST_DATE),
     neo_id=random.choice(TEST_NEO_ID),
     name=random.choice(TEST_NAME),
@@ -102,7 +102,7 @@ ABSOLUTE_MAG_LIST = [AbsoluteMag(
 
 
 ORBIT_LIST = [Orbit(
-    id=random.choice(TEST_ID),
+   # id=random.choice(TEST_ID),
     date=random.choice(TEST_DATE),
     neo_id=random.choice(TEST_NEO_ID),
     name=random.choice(TEST_NAME),
@@ -120,14 +120,6 @@ def dummy_request():
     """Set up a dummy request for testing."""
     return DummyRequest()
 
-
-@pytest.fixture
-def add_models(dummy_request):
-    """Add fake contents to test db."""
-    dummy_request.dbsession.add_all(SIZE_LIST)
-    dummy_request.dbsession.add_all(DISTANCE_LIST)
-    dummy_request.dbsession.add_all(ABSOLUTE_MAG_LIST)
-    dummy_request.dbsession.add_all(ORBIT_LIST)
 
 @pytest.fixture(scope="session")
 def configuration(request):
@@ -240,8 +232,30 @@ def test_size_view_returns_dict(dummy_request):
     assert isinstance(response, dict)
 
 
-'''
+def test_size_view_returns_redirect(dummy_request):
+    """Test size view with db call."""
+    from space_rocks.views.default import size_view
+    dummy_request.dbsession.add_all(SIZE_LIST)
+    response = size_view(dummy_request)
+    assert isinstance(response, dict)
 
+
+def test_orbit_view_returns_redirect(dummy_request):
+    """Test orbit view with db call."""
+    from space_rocks.views.default import orbit_view
+    dummy_request.dbsession.add_all(ORBIT_LIST)
+    response = orbit_view(dummy_request)
+    assert isinstance(response, dict)
+
+
+def test_abs_mag_view_returns_redirect(dummy_request):
+    """Test orbit view with db call."""
+    from space_rocks.views.default import absolute_magnitude_view
+    dummy_request.dbsession.add_all(ABSOLUTE_MAG_LIST)
+    response = absolute_magnitude_view(dummy_request)
+    assert isinstance(response, dict)
+
+'''
 def test_distance_view_returns_dict(dummy_request):
     """Test size view creation."""
     from space_rocks.views.default import distance_view
