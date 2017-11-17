@@ -31,31 +31,176 @@
         <p>Scale of Earth and the Moon are described in legend</p> 
     </div>
 {% include '../static/graphs/distance.html' %}
+
+<h2 class="d_h2">Distance Data Tables</h2>
+
+<div id="top" class="d_button">
+    <a href="#one">14.5LD > NEOs > 5.5LD</a>
+    <a href="#two">5.5LD > NEOs > 2.5LD</a>
+    <a href="#three">2.5LD > NEOs > 1.5LD</a>
+    <a href="#four">1.4LD > NEOs > 0.5LD</a>
+    <a href="#five">0.5LD > NEOs</a>
+</div>
+
+<div id="one" class="t_container">
+    <h3>14.5LD > NEOs > 5.5LD</h3>
 <table class="distance_table">
     <thead>
-    <tr>
-        <th>Neo ID</th>
-        <th>Name</th>
-        <th>AU</th>
-        <th>L</th>
-        <th>km</th>
-        <th>miles</th>
-        <th>Reference</th>
-    </tr>
+        <tr>
+            <th>Neo ID</th>
+            <th>Name</th>
+            <th>AU</th>
+            <th>L</th>
+            <th>km</th>
+            <th>miles</th>
+            <th>Reference</th>
+        </tr>
     </thead>
     <tbody>
-    {% for neo in asteroids %}
-    <tr>
-        <td>{{neo.neo_id}}</td>
-        <td>{{neo.name}}</td>
-        <td>{{neo.astronomical}}</td>
-        <td>{{neo.lunar}}</td>
-        <td>{{neo.kilometers}}</td>
-        <td>{{neo.miles}}</td>
-        <td><a href="{{neo.url}}">Site</a></td>
-    </tr>
-    {% endfor %}
-</tbody>
+        {% for neo in asteroids %}
+        {% if neo.lunar < 14.5 and neo.lunar > 5.5 %}
+        <tr>
+            <td>{{neo.neo_id}}</td>
+            <td>{{neo.name}}</td>
+            <td>{{neo.astronomical}}</td>
+            <td>{{neo.lunar}}</td>
+            <td>{{neo.kilometers}}</td>
+            <td>{{neo.miles}}</td>
+            <td><a href="{{neo.url}}">Site</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
 </table>
+<a href="#top">Go to Top</a>
+</div>
+<div id="two" class="t_container">
+    <h3>5.5LD > NEOs > 2.5LD</h3>
+<table class="distance_table">
+    <thead>
+        <tr>
+            <th>Neo ID</th>
+            <th>Name</th>
+            <th>AU</th>
+            <th>L</th>
+            <th>km</th>
+            <th>miles</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for neo in asteroids %}
+        {% if neo.lunar < 5.5 and neo.lunar > 2.5 %}
+        <tr>
+            <td>{{neo.neo_id}}</td>
+            <td>{{neo.name}}</td>
+            <td>{{neo.astronomical}}</td>
+            <td>{{neo.lunar}}</td>
+            <td>{{neo.kilometers}}</td>
+            <td>{{neo.miles}}</td>
+            <td><a href="{{neo.url}}">Site</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="#top">Go to Top</a>
+</div>
+<div id="three" class="t_container">
+    <h3>2.5LD > NEOs > 1.5LD</h3>
+<table class="distance_table">
+    <thead>
+        <tr>
+            <th>Neo ID</th>
+            <th>Name</th>
+            <th>AU</th>
+            <th>L</th>
+            <th>km</th>
+            <th>miles</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for neo in asteroids %}
+        {% if neo.lunar < 2.5 and neo.lunar > 1.5 %}
+        <tr>
+            <td>{{neo.neo_id}}</td>
+            <td>{{neo.name}}</td>
+            <td>{{neo.astronomical}}</td>
+            <td>{{neo.lunar}}</td>
+            <td>{{neo.kilometers}}</td>
+            <td>{{neo.miles}}</td>
+            <td><a href="{{neo.url}}">Site</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="#top">Go to Top</a>
+</div>
+<div id="four" class="t_container">
+    <h3>1.4LD > NEOs > 0.5LD</h3>
+<table class="distance_table">
+    <thead>
+        <tr>
+            <th>Neo ID</th>
+            <th>Name</th>
+            <th>AU</th>
+            <th>LD</th>
+            <th>km</th>
+            <th>miles</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for neo in asteroids %}
+        {% if neo.lunar < 1.5 and neo.lunar > 0.5 %}
+        <tr>
+            <td>{{neo.neo_id}}</td>
+            <td>{{neo.name}}</td>
+            <td>{{neo.astronomical}}</td>
+            <td>{{neo.lunar}}</td>
+            <td>{{neo.kilometers}}</td>
+            <td>{{neo.miles}}</td>
+            <td><a href="{{neo.url}}">Site</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="#top">Go to Top</a>
+</div>
+<div id="five" class="t_container">
+    <h3>0.5LD > NEOs</h3>
+<table class="distance_table">
+    <thead>
+        <tr>
+            <th>Neo ID</th>
+            <th>Name</th>
+            <th>AU</th>
+            <th>L</th>
+            <th>km</th>
+            <th>miles</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for neo in asteroids %}
+        {% if neo.lunar < 0.5 %}
+        <tr>
+            <td>{{neo.neo_id}}</td>
+            <td>{{neo.name}}</td>
+            <td>{{neo.astronomical}}</td>
+            <td>{{neo.lunar}}</td>
+            <td>{{neo.kilometers}}</td>
+            <td>{{neo.miles}}</td>
+            <td><a href="{{neo.url}}">Site</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="#top">Go to Top</a>
+</div>
 </main>
 {% endblock %}
