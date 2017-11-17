@@ -1,26 +1,156 @@
 {% extends "layout.jinja2" %}
 
 {% block content %}
-<marquee direction="left"><h1 class="moving_text">
-    An asteroid's orbit is computed by finding the elliptical path about the sun 
+<main class="distance_page">
+
+<h1>Orbits</h1>
+<p>An asteroid's orbit is computed by finding the elliptical path about the sun 
     that best fits the available observations of the object. 
     That is, the object's computed path about the sun is adjusted until the predictions
     of where the asteroid should have appeared in the sky at several observed times match 
     the positions where the object was actually observed to be at those same times. 
-    As more and more observations are used to further improve an object's orbit,</h1></marquee>
-    {% for neo in Orbits %}
-    <div class="clearfix">
-    <div class="card-body">
-    <h1>Name of NEO : {{neo.name}}</h1>
-    <h3>ID #: {{neo.neo_id}}</h3>
-    <h4>Orbit Peroid : {{neo.orbit_period}}</h4>
-    <h5>Perinelion distance : {{neo.perihelion_dist}}</h5>
-    <h5>Aphelion distance : {{neo.aphelion_dist}}</h5>
-    <h5>Eccentricity : {{neo. eccentricity}}</h5>
-    <a href ="{{neo.url}}" target="_blank" class="btn btn-secondary"><h2>Indepth Orbit Detail &rarr;</h2></a>
-<hr>
+    As more and more observations are used to further improve an object's orbit.</p>
+
+
+<div id="top" class="d_button">
+    <a href="#one">Near Earth Asteroids</a>
+    <a href="#two">Atens</a>
+    <a href="#three">Apollos</a>
+    <a href="#four">Amors </a>
 </div>
+
+<div id="one" class="t_container">
+    <h3>Near-Earth Asteroids</h3>
+    <h4>q < 1.3AU</h4>
+<table class="distance_table">
+    <thead>
+        <tr>
+            <th>Neo ID</th>
+            <th>Name</th>
+            <th>Orbital Period</th>
+            <th>Perihelion Distance</th>
+            <th>Aphelion</th>
+            <th>Eccentricity</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for neo in Orbits %}
+        {% if neo.perihelion_dist < 1.3 %}
+        <tr>
+            <td>{{neo.neo_id}}</td>
+            <td>{{neo.name}}</td>
+            <td>{{neo.orbit_period}}</td>
+            <td>{{neo.perihelion_dist}}</td>
+            <td>{{neo.aphelion_dist}}</td>
+            <td>{{neo.eccentricity}}</td>
+            <td><a href="{{neo.url}}">Site</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="#top">Go to Top</a>
 </div>
-    {% endfor %}
+<div id="two" class="t_container">
+    <h3>Atens</h3>
+    <h4>Q > 0.983AU and a < 1.0AU</h4>
+<table class="distance_table">
+    <thead>
+        <tr>
+            <th>Neo ID</th>
+            <th>Name</th>
+            <th>Orbital Period</th>
+            <th>Perihelion Distance</th>
+            <th>Aphelion</th>
+            <th>Eccentricity</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for neo in Orbits %}
+        {% if neo.aphelion_dist > 0.983 and neo.eccentricity < 1 %}
+        <tr>
+            <td>{{neo.neo_id}}</td>
+            <td>{{neo.name}}</td>
+            <td>{{neo.orbit_period}}</td>
+            <td>{{neo.perihelion_dist}}</td>
+            <td>{{neo.aphelion_dist}}</td>
+            <td>{{neo.eccentricity}}</td>
+            <td><a href="{{neo.url}}">Site</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="#top">Go to Top</a>
+</div>
+<div id="three" class="t_container">
+    <h3>Apollos</h3>
+    <h4>q < 1.017AU and a > 1.0AU</h4>
+<table class="distance_table">
+    <thead>
+        <tr>
+            <th>Neo ID</th>
+            <th>Name</th>
+            <th>Orbital Period</th>
+            <th>Perihelion Distance</th>
+            <th>Aphelion</th>
+            <th>Eccentricity</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for neo in Orbits %}
+        {% if neo.perihelion_dist < 1.017 %}
+        <tr>
+            <td>{{neo.neo_id}}</td>
+            <td>{{neo.name}}</td>
+            <td>{{neo.orbit_period}}</td>
+            <td>{{neo.perihelion_dist}}</td>
+            <td>{{neo.aphelion_dist}}</td>
+            <td>{{neo.eccentricity}}</td>
+            <td><a href="{{neo.url}}">Site</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="#top">Go to Top</a>
+</div>
+<div id="four" class="t_container">
+    <h3>Amors</h3>
+    <h4>1.017AU < q < 1.3AU</h4>
+<table class="distance_table">
+    <thead>
+        <tr>
+            <th>Neo ID</th>
+            <th>Name</th>
+            <th>Orbital Period</th>
+            <th>Perihelion Distance</th>
+            <th>Aphelion</th>
+            <th>Eccentricity</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for neo in Orbits %}
+        {% if neo.perihelion_dist > 1.017 and neo.perihelion_dist < 1.3 %}
+        <tr>
+            <td>{{neo.neo_id}}</td>
+            <td>{{neo.name}}</td>
+            <td>{{neo.orbit_period}}</td>
+            <td>{{neo.perihelion_dist}}</td>
+            <td>{{neo.aphelion_dist}}</td>
+            <td>{{neo.eccentricity}}</td>
+            <td><a href="{{neo.url}}">Site</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<a href="#top">Go to Top</a>
+</div>
+</main>
 {% endblock %}
  
