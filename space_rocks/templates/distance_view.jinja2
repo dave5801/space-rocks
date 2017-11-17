@@ -2,7 +2,7 @@
 
 {% block content %}
 <main class="distance_page">
-    <h1>NEOs Miss Distance</h1>
+    <h1 class="distance_header">NEOs Miss Distance</h1>
     <div class="distance_container">
     <div class="earth"></div>
     <div class="line"></div>
@@ -32,6 +32,7 @@
     </div>
 {% include '../static/graphs/distance.html' %}
 <table class="distance_table">
+    <thead>
     <tr>
         <th>Neo ID</th>
         <th>Name</th>
@@ -41,6 +42,8 @@
         <th>miles</th>
         <th>Reference</th>
     </tr>
+    </thead>
+    <tbody>
     {% for neo in asteroids %}
     <tr>
         <td>{{neo.neo_id}}</td>
@@ -52,6 +55,7 @@
         <td><a href="{{neo.url}}">Site</a></td>
     </tr>
     {% endfor %}
+</tbody>
 </table>
 </main>
 {% endblock %}

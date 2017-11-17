@@ -3,7 +3,7 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 14px;
     line-height: 1.428571429;
-    color: #dbe2e6
+    color: #dbe2e6;
     background-color: #ffffff0f;
 }
 
@@ -175,8 +175,26 @@ li {
 
 /*Distance Page Stylings*/
 
+.distance_header {
+  font-size: 5em;
+  text-align: center;
+}
+
+.distance_description {
+  width: 80%;
+  margin: auto;
+}
+
 .distance_table {
   width: 100%;
+}
+
+thead, tbody { display: block; }
+
+tbody {
+    height: 100px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
 }
 
 .bk-bs-nav-tabs li {
