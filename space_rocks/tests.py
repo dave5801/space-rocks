@@ -88,6 +88,19 @@ def test_layout_root(testapp):
     assert 'SpaceRocks' in html.find("title").text
 
 
+def test_index_layout(testapp):
+    """Test get response from index view."""
+    response = testapp.get('/', status=200)
+    html = response.html
+    assert 'SPACE' in html.find("h1").text
+
+
+def test_about_layout(testapp):
+    """Test get response from about view."""
+    response = testapp.get('/about', status=200)
+    html = response.html
+    assert 'Chaitanya' in html.find("h1").text
+
 def test_home_view_returns_dict(dummy_request):
     """Test home view creation."""
     from space_rocks.views.default import home_view
