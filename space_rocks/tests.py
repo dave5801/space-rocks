@@ -72,6 +72,42 @@ def dummy_request(db_session):
     return testing.DummyRequest(dbsession=db_session)
 
 
+@pytest.fixture()
+def testapp():
+    """Test fixture for creating an app"""
+    from space_rocks import main
+    app = main({})
+    from webtest import TestApp
+    return TestApp(app)
+
+
+def test_layout_root(testapp):
+    """Test get response from layout view."""
+    response = testapp.get('/', status=200)
+    html = response.html
+    assert 'SpaceRocks' in html.find("title").text
+
+
+def test_index_layout(testapp):
+    """Test get response from index view."""
+    response = testapp.get('/', status=200)
+    html = response.html
+    assert 'SPACE' in html.find("h1").text
+
+
+def test_about_layout(testapp):
+    """Test get response from about view."""
+    response = testapp.get('/about', status=200)
+    html = response.html
+    assert 'Chaitanya' in html.find("h1").text
+
+
+def test_size_layout(testapp):
+    """Test get response from size view."""
+    response = testapp.get('/size', status=200)
+    html = response.html
+    assert 'Size' in html.find("h1").text
+
 def test_home_view_returns_dict(dummy_request):
     """Test home view creation."""
     from space_rocks.views.default import home_view
@@ -93,30 +129,22 @@ def test_size_view_returns_dict(dummy_request):
     assert isinstance(response, dict)
 
 
+'''
+
 def test_distance_view_returns_dict(dummy_request):
     """Test size view creation."""
     from space_rocks.views.default import distance_view
     response = distance_view(dummy_request)
     assert isinstance(response, dict)
-
-'''
-def test_about_view_returns_empty_dict(dummy_request):
-    """Test about view creation."""
-    from space_rocks.views.default import about_view
-    dummy_request.method = "POST"
-    response = about_view(dummy_request)
-    assert response == {}
 '''
 
-'''
-def test_size_view_returns_with_size_graph_data(dummy_request):
-    """."""
-    from space_rocks.views.default import size_view
 
-    dummy_request.method = "POST"
-    response = size_view(dummy_request)
-    assert response == {}
-'''
+def test_orbit_view_returns_dict(dummy_request):
+    """Test orbit view creation."""
+    from space_rocks.views.default import orbit_view
+    response = orbit_view(dummy_request)
+    assert isinstance(response, dict)
+
 
 def test_abs_magnitude_graph_no_arguments_returns_exception():
     """Test if absolute magnitude graph's raises exception, no args."""
@@ -151,7 +179,7 @@ def test_abs_magnitude_graph_missing_velocity_returns_exception():
     test_neo_names = ["ceres", "phobos", "deimos", "asteroid x", "it was earth all along!!"]
 
     with pytest.raises(UnknownAxisException):
-        graph_abs_magnitude(test_mag, [],test_neo_names)
+        graph_abs_magnitude(test_mag, [], test_neo_names)
 
 
 def test_abs_magnitude_graph_missing_neo_names_returns_exception():
@@ -172,4 +200,4 @@ def test_abs_magnitude_graph_exists_valid_arguments():
     test_neo_names = ["ceres", "phobos", "deimos", "asteroid x", "it was earth all along!!"]
 
     graph_abs_magnitude(test_mag, test_vel, test_neo_names)
-    assert os.path.isfile("space_rocks/static/graphs/abs_magnitude.html")
+    assert os.path.isfile("static/graphs/abs_magnitude.html")

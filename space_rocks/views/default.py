@@ -72,10 +72,3 @@ def orbit_view(request):
     return {
         "Orbits": Orbits
     }
-
-
-@view_config(route_name='detail', renderer='../templates/detail_view.jinja2')
-def detail_view(request):
-    """Render the detail view for Near Earth Object."""
-    neo_id = int(request.matchdict['id'])
-    return {}
