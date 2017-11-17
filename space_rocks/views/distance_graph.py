@@ -125,7 +125,7 @@ def create_chart(neo_dict):
             tools=" ",
             x_range=(d['x_min'], d['x_max']),
             y_range=(d['y_min'], d['y_max']),
-            plot_width=1200,
+            plot_width=1400,
             plot_height=740,
             background_fill_color="black",
             border_fill_color="black",
