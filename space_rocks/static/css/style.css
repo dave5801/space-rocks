@@ -164,6 +164,7 @@ tbody {
 .d_container {
   width: 100%;
   display: block;
+  clear: both;
 }
 
 .d_button a {
