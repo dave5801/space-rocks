@@ -8,7 +8,7 @@ from bokeh.palettes import YlGnBu3
 from random import randint
 
 HERE = os.path.abspath(__file__)
-PLOT = os.path.join(os.path.dirname(os.path.dirname(HERE)), 'static/size.html')
+PLOT = os.path.join(os.path.dirname(os.path.dirname(HERE)), 'static/graphs/size.html')
 
 
 def size_chart(asteroid_list):
