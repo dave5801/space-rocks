@@ -70,7 +70,7 @@ def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
                        border_fill_color='black',
                        border_fill_alpha=0.8,
                        toolbar_location=None,
-                       responsive=True
+                       sizing_mode='scale_width'
                        )
 
             p.circle('x', 'y', size=10, source=source)
@@ -82,11 +82,3 @@ def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
             raise UnknownAxisException
     except TypeError:
         raise UnknownAxisException
-
-
-if __name__ == '__main__':
-    mag = [1, 2, 3, 4, 5]
-    vel = [2, 5, 8, 2, 7]
-    neo_names = ["ceres", "phobos", "deimos", "asteroid x", "it was earth all along!!"]
-
-    graph_abs_magnitude(mag, vel, neo_names)

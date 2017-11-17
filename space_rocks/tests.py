@@ -79,6 +79,13 @@ def test_home_view_returns_dict(dummy_request):
     assert isinstance(response, dict)
 
 
+def test_home_view_returns_empty_dict(dummy_request):
+    """Test home view creation."""
+    from space_rocks.views.default import home_view
+    response = home_view(dummy_request)
+    assert response == {}
+
+
 def test_about_view_returns_dict(dummy_request):
     """Test about view creation."""
     from space_rocks.views.default import about_view
@@ -99,12 +106,21 @@ def test_distance_view_returns_dict(dummy_request):
     response = distance_view(dummy_request)
     assert isinstance(response, dict)
 
+
+def test_distance_view_returns_dict_of_asteroids(dummy_request):
+    """Test size view creation."""
+    from space_rocks.views.default import distance_view
+    response = distance_view(dummy_request)
+    assert response == {'asteroids': []}
+
+
 def test_about_view_returns_empty_dict(dummy_request):
     """Test about view creation."""
     from space_rocks.views.default import about_view
     dummy_request.method = "POST"
     response = about_view(dummy_request)
     assert isinstance(response, dict)
+
 
 def test_size_view_returns_with_size_graph_data(dummy_request):
     """."""
@@ -113,6 +129,7 @@ def test_size_view_returns_with_size_graph_data(dummy_request):
     dummy_request.method = "POST"
     response = size_view(dummy_request)
     assert isinstance(response, dict)
+
 
 def test_abs_magnitude_graph_no_arguments_returns_exception():
     """Test if absolute magnitude graph's raises exception, no args."""
@@ -167,5 +184,5 @@ def test_abs_magnitude_graph_exists_valid_arguments():
     test_vel = [2, 5, 8, 2, 7]
     test_neo_names = ["ceres", "phobos", "deimos", "asteroid x", "it was earth all along!!"]
 
-    graph_abs_magnitude(test_mag, test_vel, test_neo_names)
     assert os.path.isfile("space_rocks/static/graphs/abs_magnitude.html")
+    graph_abs_magnitude(test_mag, test_vel, test_neo_names)

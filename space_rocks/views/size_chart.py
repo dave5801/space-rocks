@@ -40,7 +40,7 @@ def size_chart(asteroid_list):
         border_fill_color='black',
         border_fill_alpha=0.7,
         y_range=(0, 300),
-        responsive=True
+        sizing_mode='scale_width'
     )
 
     for item, size, name, color in zip([y_axis_2018, y_axis_2017, y_axis_2016], [size_2018, size_2017, size_2016],
