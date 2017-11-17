@@ -36,7 +36,7 @@ def size_chart(asteroid_list):
         plot_width=900,
         plot_height=800,
         background_fill_color='black',
-        background_fill_alpha=0.9,
+        background_fill_alpha=0.8,
         border_fill_color='black',
         border_fill_alpha=0.8,
         y_range=(0, 300)
