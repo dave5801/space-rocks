@@ -17,7 +17,7 @@ def graph_abs_magnitude(abs_mag=None, velocity=None, neo_names=None):
     try:
         if len(abs_mag) > 0 and len(velocity) > 0 and len(neo_names) > 0:
             here = os.path.abspath(__file__)
-            graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)),"static/abs_magnitude.html")
+            graph_file_path = os.path.join(os.path.dirname(os.path.dirname(here)),"static/graphs/abs_magnitude.html")
 
             output_file(graph_file_path)
 
