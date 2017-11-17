@@ -3,6 +3,7 @@ from bokeh.models import ColumnDataSource, BoxZoomTool, HoverTool
 from space_rocks.models.spacemodel import Distance
 from bokeh.models.widgets import Panel, Tabs
 import random
+import os
 
 HERE = os.path.abspath(__file__)
 graph_path = os.path.join(
