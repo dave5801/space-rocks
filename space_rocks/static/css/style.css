@@ -44,11 +44,13 @@ img {
   color: #09599e;
 }
 
-#title_text{
+.title_text{
   font-family: Helvetica;
   font-weight: lighter;
   color: white;
 }
+
+
 
 /*Nav bar*/
 .navbar-default .navbar-nav>li>a {
