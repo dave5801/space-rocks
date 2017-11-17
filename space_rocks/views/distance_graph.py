@@ -36,12 +36,12 @@ def gather_data(asteroids):
     for neo in neo_dict['lunar_list'][num:]:
         a = random.uniform(0.1, neo)
         b = neo - a
-<<<<<<< HEAD
+
         x_numbers.append(-b)
         y_numbers.append(a)
-    x = x_numbers
-    y = y_numbers
-    chart_data = [N, x, y]
+        x = x_numbers
+        y = y_numbers
+        chart_data = [N, x, y]
     create_chart(chart_data)
 
 
@@ -223,9 +223,9 @@ def create_chart(chart_data):
     tab5 = Panel(child=p5, title="NEOs <= 0.5 Lunar Distance")
 
     tabs = Tabs(tabs=[tab1, tab2, tab3, tab4, tab5])
-=======
-        neo_dict['x_numbers'].append(-b)
-        neo_dict['y_numbers'].append(a)
+
+    neo_dict['x_numbers'].append(-b)
+    neo_dict['y_numbers'].append(a)
 
     create_chart(neo_dict)
 
@@ -348,6 +348,6 @@ def create_chart(neo_dict):
     output_file(graph_path)
 
     tabs = Tabs(tabs=display)
->>>>>>> master
+
 
     save(tabs)

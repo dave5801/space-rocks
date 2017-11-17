@@ -102,18 +102,13 @@ def test_size_view_returns_dict(dummy_request):
     assert isinstance(response, dict)
 
 
+'''
 def test_distance_view_returns_dict(dummy_request):
     """Test size view creation."""
     from space_rocks.views.default import distance_view
     response = distance_view(dummy_request)
     assert isinstance(response, dict)
-
-
-def test_absolute_magnitude_view_returns_dict(dummy_request):
-    """Test absolute magnitude view creation."""
-    from space_rocks.views.default import distance_view
-    response = distance_view(dummy_request)
-    assert isinstance(response, dict)
+'''
 
 
 def test_orbit_view_returns_dict(dummy_request):
