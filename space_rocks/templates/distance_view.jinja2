@@ -1,14 +1,14 @@
 {% extends "layout.jinja2" %}
 
 {% block content %}
-<main class="distance_page">
+<main  class="content" class="distance_page">
     <h1 class="distance_header">NEOs Miss Distance</h1>
     <div class="distance_container">
     <div class="earth"></div>
     <div class="line"></div>
     <div class="moon"></div>
     </div>
-    <div class="description_container">
+    <div class="content" class="description_container">
         <ul class="earth_list">
             <li>Earth</li>
         </ul>
@@ -22,7 +22,7 @@
             <li>Moon</li>
         </ul>
     </div>
-    <div class="distance_description">
+    <div class="content" class="distance_description">
         <h2>Distance Data</h2>
         <p>The following graph displays the miss distance of Near-Earth Objects (NEOs),
         measured from the center of Earth to the center of the NEO in Lunar Distance.</p>
@@ -31,7 +31,7 @@
         <p>Scale of Earth and the Moon are described in legend</p> 
     </div>
 
-    <div class="d_container">
+    <div class="content" class="d_container">
 {% include '../static/graphs/distance.html' %}
 </div>
 
@@ -45,7 +45,7 @@
     <a href="#five">0.5LD > NEOs</a>
 </div>
 
-<div id="one" class="t_container">
+<div class="content" id="one" class="t_container">
     <h3>14.5LD > NEOs > 5.5LD</h3>
 <table class="distance_table">
     <thead>
@@ -77,7 +77,7 @@
 </table>
 <a href="#top" class="top_button">Go to Top</a>
 </div>
-<div id="two" class="t_container">
+<div class="content" id="two" class="t_container">
     <h3>5.5LD > NEOs > 2.5LD</h3>
 <table class="distance_table">
     <thead>
@@ -109,7 +109,7 @@
 </table>
 <a href="#top" class="top_button">Go to Top</a>
 </div>
-<div id="three" class="t_container">
+<div class="content" id="three" class="t_container">
     <h3>2.5LD > NEOs > 1.5LD</h3>
 <table class="distance_table">
     <thead>
@@ -141,7 +141,7 @@
 </table>
 <a href="#top" class="top_button">Go to Top</a>
 </div>
-<div id="four" class="t_container">
+<div class="content" id="four" class="t_container">
     <h3>1.4LD > NEOs > 0.5LD</h3>
 <table class="distance_table">
     <thead>
@@ -173,7 +173,7 @@
 </table>
 <a href="#top" class="top_button">Go to Top</a>
 </div>
-<div id="five" class="t_container">
+<div class="content" id="five" class="t_container">
     <h3>0.5LD > NEOs</h3>
 <table class="distance_table">
     <thead>

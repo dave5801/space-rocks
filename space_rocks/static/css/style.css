@@ -1,11 +1,11 @@
 body {
-    font-size: 14px;
+    font-size: 1.5vw;
     color: #dbe2e6;
    font-family: 'Orbitron', sans-serif;
 }
 
 h1, h3, h5{
-     color: #eef0f3;
+     color: #078cf7;
 }
 
 h2, h4, h6, p .h1, .h2, .h3, .h4, .h5, .h6, .p{
@@ -35,14 +35,15 @@ img {
     border-radius: 20px;
 }
 
-.left {
-  width: 48%;
-  float: left;
-}
 
 .title {
-  font-size: 5em;
+  font-size: 6vw;
   color: White;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 75px;
+  margin-bottom: 50px;
+
 }
 
 .title_two {
@@ -60,61 +61,6 @@ img {
     padding:10px;
     text-align: center;
 }
-
-/*
-Video on page*/
-* { box-sizing: border-box; }
-.video-background {
-  background: #000;
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  z-index: -99;
-}
-.video-foreground,
-.video-background iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-#vidtop-content {
-    top: 0;
-    color: #fff;
-}
-.vid-info { position: absolute; top: 0; right: 0; width: 33%; background: rgba(0,0,0,0.3); color: #fff; padding: 1rem; font-family: Avenir, Helvetica, sans-serif; }
-.vid-info h1 { font-size: 2rem; font-weight: 700; margin-top: 0; line-height: 1.2; }
-.vid-info a { display: block; color: #fff; text-decoration: none; background: rgba(0,0,0,0.5); transition: .6s background; border-bottom: none; margin: 1rem auto; text-align: center; }
-@media (min-aspect-ratio: 16/9) {
-  .video-foreground { height: 300%; top: -100%; }
-}
-@media (max-aspect-ratio: 16/9) {
-  .video-foreground { width: 300%; left: -100%; }
-}
-@media all and (max-width: 600px) {
-.vid-info { width: 50%; padding: .5rem; }
-.vid-info h1 { margin-bottom: .2rem; }
-}
-@media all and (max-width: 500px) {
-.vid-info .acronym { display: none; }
-}
-
-/*Grapg*/
-/*.bk-root {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 10pt;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin: auto;*/
-    /*padding-left: 10%;*/
-}
-
-.graph_container {
-  padding-left: 10%;
-}
-
 /*Distance Page Stylings*/
 
 .distance_header {
@@ -123,14 +69,13 @@ Video on page*/
 }
 
 .distance_description {
-  width: 75%;
+  width: 90%;
   margin: auto;
   margin-bottom: 50px;
 }
 
 .distance_table {
   width: 100%;
-  margin-left: 20px;
   color: white;
 }
 
@@ -144,21 +89,15 @@ Video on page*/
 
 thead {
   display: inline-block;
-  width: 100%;
+  width: 80%;
   height: 20px;
 }
 
 tbody {
   height: 200px;
   display: inline-block;
-  width: 100%;
+  width: 80%;
   overflow: auto;
-}
-
-.t_container {
-  margin: 50px 0px;
-  padding: 10px;
-  padding-left: 22%;
 }
 
 .top_button {
@@ -314,3 +253,28 @@ nav ul li a:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.1);
   color: rgba(0, 35, 122, 0.7);
+}
+
+.video {
+  position: fixed;
+  top: 50%; left: 50%;
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+ table.center {
+    max-width: 960px;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
