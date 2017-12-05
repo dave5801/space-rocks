@@ -2,6 +2,7 @@ body {
     font-size: 1.5vw;
     color: #dbe2e6;
    font-family: 'Orbitron', sans-serif;
+   line-height: 1.5em;
 }
 
 h1, h3, h5{
@@ -33,8 +34,12 @@ img {
     font-family: 'Source Sans Pro', sans-serif;
     background-color: #047bda82;
     border-radius: 20px;
+    width: 70%;
+   margin:auto;
 }
-
+ul {
+  list-style-type: none;
+}
 
 .title {
   font-size: 6vw;
@@ -64,42 +69,15 @@ img {
 /*Distance Page Stylings*/
 
 .distance_header {
-  font-size: 5em;
+  font-size: 3em;
   text-align: center;
 }
 
 .distance_description {
-  width: 90%;
+  width: 80%;
   margin: auto;
   margin-bottom: 50px;
 }
-
-.distance_table {
-  width: 100%;
-  color: #00030a;
-}
-
-.distance_table a {
-  color: #00030a;
-}
-
-.distance_table th, .distance_table td {
-  width: 150px;
-}
-
-thead {
-  display: inline-block;
-  width: 80%;
-  height: 25%;
-}
-
-tbody {
-  height: 200px;
-  display: inline-block;
-  width: 80%;
-  overflow: auto;
-}
-
 .top_button {
   margin: 10px;
   margin-top: 20px;
@@ -138,7 +116,6 @@ tbody {
   width: 150px;
   font-size: 14px;
 }
-
 .bk-bs-nav-tabs li:hover {
   color: #09599e;
 }
@@ -272,77 +249,146 @@ nav ul li a:hover {
   text-align: center;
 }
 
-/* table.center {
-    max-width: 960px;
-    margin-left:auto; 
-    margin-right:auto;
-}*/
 
 table {
-  border-collapse: collapse;
-  margin: 0;
+    display: inline-block;
+    max-height:200px;
+   overflow-y: scroll;
+}
+
+.responsive-table {
+  width: 80%;
+  margin-bottom: 1.5em;
+}
+.responsive-table thead {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
   padding: 0;
-  width: 100%;
-  table-layout: fixed;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
+.responsive-table thead th {
+  background-color: #1d96b2;
+  border: 1px solid #1d96b2;
+  font-weight: normal;
+  text-align: center;
+  color: white;
+
 }
-table tr {
-  background: rgba(18, 134, 249, 0.4);
-  border: 1px solid #ddd;
-  padding: .35em;
+.responsive-table thead th:first-of-type {
+  text-align: left;
 }
-table th,
-table td {
-  padding: .625em;
+.responsive-table tbody,
+.responsive-table tr,
+.responsive-table th,
+.responsive-table td {
+  display: block;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+}
+.responsive-table th,
+.responsive-table td {
+  padding: .9em;
+  vertical-align: middle;
+}
+.responsive-table caption {
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
   text-align: center;
 }
-table th {
-  font-size: .85em;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+.responsive-table tfoot {
+  font-size: .8em;
+  font-style: italic;
 }
-@media screen and (max-width: 600px) {
-  table {
-    border: 0;
+.responsive-table tbody tr {
+  margin-bottom: 1em;
+  border: 2px solid #1d96b2;
+}
+.responsive-table tbody tr:last-of-type {
+  margin-bottom: 0;
+}
+.responsive-table tbody th[scope="row"] {
+  background-color: #1d96b2;
+  color: white;
+}
+.responsive-table tbody td[data-title]:before {
+  content: attr(data-title);
+  float: left;
+  font-size: 1em;
+  color: #1ab8ec;;
+}
+.responsive-table tbody td {
+  text-align: right;
+  border-bottom: 1px solid #1d96b2;
+}
+
+
+@media (min-width: 75em) {
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em;
   }
-  table caption {
-    font-size: 1.3em;
+}
+@media (min-width: 62em) {
+  .responsive-table {
+    font-size: 1em;
   }
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  .responsive-table th,
+  .responsive-table td {
+    padding: .75em .5em;
   }
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
+  .responsive-table tfoot {
+    font-size: .9em;
   }
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: .8em;
-    text-align: right;
+}
+@media (min-width: 52em) {
+  .responsive-table {
+    font-size: .9em;
   }
-  table td:before {
-    /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
+  .responsive-table thead {
+    position: relative;
+    clip: auto;
+    height: auto;
+    width: auto;
+    overflow: auto;
   }
-  table td:last-child {
-    border-bottom: 0;
+  .responsive-table tr {
+    display: table-row;
+  }
+  .responsive-table th,
+  .responsive-table td {
+    display: table-cell;
+    padding: .5em;
+  }
+
+  .responsive-table caption {
+    font-size: 1.5em;
+  }
+  .responsive-table tbody {
+    display: table-row-group;
+  }
+  .responsive-table tbody tr {
+    display: table-row;
+    border-width: 1px;
+  }
+  .responsive-table tbody tr:nth-of-type(even) {
+    background-color: rgba(94, 93, 82, 0.1);
+  }
+  .responsive-table tbody th[scope="row"] {
+    background-color: transparent;
+    color: #5e5d52;
+    text-align: left;
+  }
+  .responsive-table tbody td {
+    text-align: center;
+  }
+  .responsive-table tbody td[data-title]:before {
+    content: none;
   }
 }

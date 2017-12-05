@@ -12,17 +12,17 @@
     As more and more observations are used to further improve an object's orbit.</p>
 </div>
 
-<div id="top" class="d_button">
+{# <div id="top" class="d_button">
     <a href="#one">Near Earth Asteroids</a>
     <a href="#two">Atens</a>
     <a href="#three">Apollos</a>
     <a href="#four">Amors </a>
-</div>
+</div> #}
 
-<div id="one" class="t_container">
+<div>
     <h3>Near-Earth Asteroids</h3>
     <h4>q < 1.3AU</h4>
-<table  class="distance_table">
+<table class="responsive-table">
     <thead>
         <tr>
             <th scope="col">Neo ID</th>
@@ -36,25 +36,25 @@
         {% for neo in Orbits %}
         {% if neo.perihelion_dist < 1.3 %}
         <tr>
-            <td>{{neo.neo_id}}</td>
-            <td>{{neo.name}}</td>
-            <td>{{neo.orbit_period}}</td>
-            <td>{{neo.eccentricity}}</td>
-            <td><a href="{{neo.url}}">Site</a></td>
+            <td data-title="Neo Id">{{neo.neo_id}}</td>
+            <td data-title="Name">{{neo.name}}</td>
+            <td data-title="Orbital Period">{{neo.orbit_period}}</td>
+            <td data-title="Eccentricity">{{neo.eccentricity}}</td>
+            <td data-title="Reference"><a href="{{neo.url}}">Site</a></td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="#top" class="top_button">Go to Top</a>
 </div>
+<a href="#top" class="top_button">Go to Top</a>
 
 
-<div id="two" class="t_container">
+<div>
     <h3>Atens</h3>
     <h4>Q > 0.983AU and a < 1.0AU</h4>
-<table  class="distance_table">
-    <thead >
+<table class="responsive-table">
+    <thead>
         <tr>
             <th scope="col">Neo ID</th>
             <th scope="col">Name</th>
@@ -67,24 +67,24 @@
         {% for neo in Orbits %}
         {% if neo.aphelion_dist > 0.983 and neo.eccentricity < 1 %}
         <tr>
-            <td>{{neo.neo_id}}</td>
-            <td>{{neo.name}}</td>
-            <td>{{neo.orbit_period}}</td>
-            <td>{{neo.eccentricity}}</td>
-            <td><a href="{{neo.url}}">Site</a></td>
+           <td scope="row" data-title="Neo Id">{{neo.neo_id}}</td>
+            <td data-title="Name">{{neo.name}}</td>
+            <td data-title="Orbital Period">{{neo.orbit_period}}</td>
+            <td data-title="Eccentricity">{{neo.eccentricity}}</td>
+            <td data-title="Reference"><a href="{{neo.url}}">Site</a></td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="#top" class="top_button">Go to Top</a>
 </div>
+<a href="#top" class="top_button">Go to Top</a>
 
-<div id="three" class="t_container">
+<div>
     <h3>Apollos</h3>
     <h4>q < 1.017AU and a > 1.0AU</h4>
-<table  class="distance_table">
-    <thead class="content">
+<table class="responsive-table">
+    <thead>
         <tr>
             <th scope="col">Neo ID</th>
             <th scope="col">Name</th>
@@ -97,24 +97,24 @@
         {% for neo in Orbits %}
         {% if neo.perihelion_dist < 1.017 %}
         <tr>
-            <td>{{neo.neo_id}}</td>
-            <td>{{neo.name}}</td>
-            <td>{{neo.orbit_period}}</td>
-            <td>{{neo.eccentricity}}</td>
-            <td><a href="{{neo.url}}">Site</a></td>
+           <td scope="row" data-title="Neo Id">{{neo.neo_id}}</td>
+            <td data-title="Name">{{neo.name}}</td>
+            <td data-title="Orbital Period">{{neo.orbit_period}}</td>
+            <td data-title="Eccentricity">{{neo.eccentricity}}</td>
+            <td data-title="Reference"><a href="{{neo.url}}">Site</a></td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="#top" class="top_button">Go to Top</a>
 </div>
+<a href="#top" class="top_button">Go to Top</a>
 
-<div id="four" class="t_container">
+<div>
     <h3>Amors</h3>
     <h4>1.017AU < q < 1.3AU</h4>
-<table class="distance_table">
-    <thead class="content">
+<table class="responsive-table">
+    <thead>
         <tr>
             <th scope="col">Neo ID</th>
             <th scope="col">Name</th>
@@ -127,18 +127,18 @@
         {% for neo in Orbits %}
         {% if neo.perihelion_dist > 1.017 and neo.perihelion_dist < 1.3 %}
         <tr>
-            <td>{{neo.neo_id}}</td>
-            <td>{{neo.name}}</td>
-            <td>{{neo.orbit_period}}</td>
-            <td>{{neo.eccentricity}}</td>
-            <td><a href="{{neo.url}}">Site</a></td>
+          <td  scope="row" data-title="Neo Id">{{neo.neo_id}}</td>
+            <td data-title="Name">{{neo.name}}</td>
+            <td data-title="Orbital Period">{{neo.orbit_period}}</td>
+            <td data-title="Eccentricity">{{neo.eccentricity}}</td>
+            <td data-title="Reference"><a href="{{neo.url}}">Site</a></td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="#top" class="top_button">Go to Top</a>
 </div>
+<a href="#top" class="top_button">Go to Top</a>
 </main>
 {% endblock %}
  
