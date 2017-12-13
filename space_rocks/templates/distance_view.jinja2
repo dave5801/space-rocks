@@ -43,163 +43,163 @@
 
 <div class="content">
     <h3>14.5LD > NEOs > 5.5LD</h3>
-<table class="distance_table">
+<table class="responsive-table">
     <thead>
         <tr>
-            <th>Neo ID</th>
-            <th>Name</th>
-            <th>AU</th>
-            <th>L</th>
-            <th>km</th>
-            <th>miles</th>
-            <th>Reference</th>
+            <th scope="col">Neo ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">AU</th>
+            <th scope="col">L</th>
+            <th scope="col">km</th>
+            <th scope="col">miles</th>
+            <th scope="col">Reference</th>
         </tr>
     </thead>
     <tbody>
         {% for neo in asteroids %}
         {% if neo.lunar < 14.5 and neo.lunar > 5.5 %}
         <tr>
-            <td>{{neo.neo_id}}</td>
-            <td>{{neo.name}}</td>
-            <td>{{neo.astronomical}}</td>
-            <td>{{neo.lunar}}</td>
-            <td>{{neo.kilometers}}</td>
-            <td>{{neo.miles}}</td>
-            <td><a href="{{neo.url}}">Site</a></td>
+            <td data-title="Neo ID">{{neo.neo_id}}</td>
+            <td data-title="Name">{{neo.name}}</td>
+            <td data-title="AU">{{neo.astronomical}}</td>
+            <td data-title="L">{{neo.lunar}}</td>
+            <td data-title="km">{{neo.kilometers}}</td>
+            <td data-title="Miles">{{neo.miles}}</td>
+            <td data-title="Reference"><a href="{{neo.url}}">Site</a></td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="#top" class="top_button">Go to Top</a>
 </div>
 <div class="content">
+<a href="#top" class="top_button">Go to Top</a>
     <h3>5.5LD > NEOs > 2.5LD</h3>
-<table>
+<table class="responsive-table">
     <thead>
         <tr>
-            <th>Neo ID</th>
-            <th>Name</th>
-            <th>AU</th>
-            <th>L</th>
-            <th>km</th>
-            <th>miles</th>
-            <th>Reference</th>
+            <th scope="col">Neo ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">AU</th>
+            <th scope="col">L</th>
+            <th scope="col">km</th>
+            <th scope="col">miles</th>
+            <th scope="col">Reference</th>
         </tr>
     </thead>
     <tbody>
         {% for neo in asteroids %}
         {% if neo.lunar < 5.5 and neo.lunar > 2.5 %}
         <tr>
-            <td>{{neo.neo_id}}</td>
-            <td>{{neo.name}}</td>
-            <td>{{neo.astronomical}}</td>
-            <td>{{neo.lunar}}</td>
-            <td>{{neo.kilometers}}</td>
-            <td>{{neo.miles}}</td>
-            <td><a href="{{neo.url}}">Site</a></td>
+            <td data-title="Neo ID">{{neo.neo_id}}</td>
+            <td data-title="Name">{{neo.name}}</td>
+            <td data-title="AU">{{neo.astronomical}}</td>
+            <td data-title="L">{{neo.lunar}}</td>
+            <td data-title="km">{{neo.kilometers}}</td>
+            <td data-title="Miles">{{neo.miles}}</td>
+            <td data-title="Reference"><a href="{{neo.url}}">Site</a></td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="#top" class="top_button">Go to Top</a>
 </div>
+<a href="#top" class="top_button">Go to Top</a>
 <div class="content">
     <h3>2.5LD > NEOs > 1.5LD</h3>
-<table >
+<table class="responsive-table">
     <thead>
         <tr>
-            <th>Neo ID</th>
-            <th>Name</th>
-            <th>AU</th>
-            <th>L</th>
-            <th>km</th>
-            <th>miles</th>
-            <th>Reference</th>
+            <th scope="col">Neo ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">AU</th>
+            <th scope="col">L</th>
+            <th scope="col">km</th>
+            <th scope="col">miles</th>
+            <th scope="col">Reference</th>
         </tr>
     </thead>
     <tbody>
         {% for neo in asteroids %}
         {% if neo.lunar < 2.5 and neo.lunar > 1.5 %}
         <tr>
-            <td>{{neo.neo_id}}</td>
-            <td>{{neo.name}}</td>
-            <td>{{neo.astronomical}}</td>
-            <td>{{neo.lunar}}</td>
-            <td>{{neo.kilometers}}</td>
-            <td>{{neo.miles}}</td>
-            <td><a href="{{neo.url}}">Site</a></td>
+            <td data-title="Neo ID">{{neo.neo_id}}</td>
+            <td data-title="Name">{{neo.name}}</td>
+            <td data-title="AU">{{neo.astronomical}}</td>
+            <td data-title="L">{{neo.lunar}}</td>
+            <td data-title="km">{{neo.kilometers}}</td>
+            <td data-title="Miles">{{neo.miles}}</td>
+            <td data-title="Reference"><a href="{{neo.url}}">Site</a></td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="#top" class="top_button">Go to Top</a>
 </div>
 <div class="content">
+<a href="#top" class="top_button">Go to Top</a>
     <h3>1.4LD > NEOs > 0.5LD</h3>
-<table>
+<table class="responsive-table">
     <thead>
         <tr>
-            <th>Neo ID</th>
-            <th>Name</th>
-            <th>AU</th>
-            <th>LD</th>
-            <th>km</th>
-            <th>miles</th>
-            <th>Reference</th>
+            <th scope="col">Neo ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">AU</th>
+            <th scope="col">LD</th>
+            <th scope="col">km</th>
+            <th scope="col">miles</th>
+            <th scope="col">Reference</th>
         </tr>
     </thead>
     <tbody>
         {% for neo in asteroids %}
         {% if neo.lunar < 1.5 and neo.lunar > 0.5 %}
         <tr>
-            <td>{{neo.neo_id}}</td>
-            <td>{{neo.name}}</td>
-            <td>{{neo.astronomical}}</td>
-            <td>{{neo.lunar}}</td>
-            <td>{{neo.kilometers}}</td>
-            <td>{{neo.miles}}</td>
-            <td><a href="{{neo.url}}">Site</a></td>
+           <td data-title="Neo ID">{{neo.neo_id}}</td>
+            <td data-title="Name">{{neo.name}}</td>
+            <td data-title="AU">{{neo.astronomical}}</td>
+            <td data-title="L">{{neo.lunar}}</td>
+            <td data-title="km">{{neo.kilometers}}</td>
+            <td data-title="Miles">{{neo.miles}}</td>
+            <td data-title="Reference"><a href="{{neo.url}}">Site</a></td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="#top" class="top_button">Go to Top</a>
 </div>
 <div class="content">
+<a href="#top" class="top_button">Go to Top</a>
     <h3>0.5LD > NEOs</h3>
-<table>
+<table class="responsive-table">
     <thead>
         <tr>
-            <th>Neo ID</th>
-            <th>Name</th>
-            <th>AU</th>
-            <th>L</th>
-            <th>km</th>
-            <th>miles</th>
-            <th>Reference</th>
+            <th scope="col">Neo ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">AU</th>
+            <th scope="col">L</th>
+            <th scope="col">km</th>
+            <th scope="col">miles</th>
+            <th scope="col">Reference</th>
         </tr>
     </thead>
     <tbody>
         {% for neo in asteroids %}
         {% if neo.lunar < 0.5 %}
         <tr>
-            <td>{{neo.neo_id}}</td>
-            <td>{{neo.name}}</td>
-            <td>{{neo.astronomical}}</td>
-            <td>{{neo.lunar}}</td>
-            <td>{{neo.kilometers}}</td>
-            <td>{{neo.miles}}</td>
-            <td><a href="{{neo.url}}">Site</a></td>
+           <td data-title="Neo ID">{{neo.neo_id}}</td>
+            <td data-title="Name">{{neo.name}}</td>
+            <td data-title="AU">{{neo.astronomical}}</td>
+            <td data-title="L">{{neo.lunar}}</td>
+            <td data-title="km">{{neo.kilometers}}</td>
+            <td data-title="Miles">{{neo.miles}}</td>
+            <td data-title="Reference"><a href="{{neo.url}}">Site</a></td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
 </table>
-<a href="#top" class="top_button">Go to Top</a>
 </div>
+<a href="#top" class="top_button">Go to Top</a>
 </main>
 {% endblock %}

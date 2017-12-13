@@ -77,6 +77,8 @@ ul {
   width: 80%;
   margin: auto;
   margin-bottom: 50px;
+  padding:5px;
+  background-color: #03a9f447;
 }
 .top_button {
   margin: 10px;
@@ -350,6 +352,7 @@ table {
 @media (min-width: 52em) {
   .responsive-table {
     font-size: .9em;
+    background-color: #03a9f447;
   }
   .responsive-table thead {
     position: relative;
