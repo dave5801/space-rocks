@@ -11,7 +11,7 @@ PasteDeploy==1.5.2
 plaster==1.0
 plaster-pastedeploy==0.4.1
 psycopg2==2.7.3.2
-py==1.4.34
+py==1.10.0
 Pygments==2.2.0
 pyramid==1.9.1
 pyramid-debugtoolbar==4.3
